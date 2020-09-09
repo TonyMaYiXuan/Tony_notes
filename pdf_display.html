@@ -2,35 +2,23 @@
 <html>
     <head>
         <script type="text/JavaScript">
-            function getMobileOperatingSystem() { // https://stackoverflow.com/a/21742107
-                var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-                    if (/android/i.test(userAgent)) {
-                        return 'Android'; // https://stackoverflow.com/a/30036015
-                    }
-                    // iOS detection from: http://stackoverflow.com/a/9039885/177710
-                    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                        return 'iOS';
-                    }
-                    return 'Windows'; // I suppose
-            }
             $(document).ready(function () { // https://stackoverflow.com/a/24077808
-                if (getMobileOperatingSystem()='Windows') {
-                    $('Windows').css('visibility', 'visible');
-                    $('Android').css('visibility', 'hidden');
-                    $('iOS').css('visibility', 'hidden');
-                }
-                if (getMobileOperatingSystem()='Android') {
-                    $('Windows').css('visibility', 'hidden');
-                    $('Android').css('visibility', 'visible');
-                    $('iOS').css('visibility', 'hidden');
-                }
-                if (getMobileOperatingSystem()='iOS') {
+                var userAgent = navigator.userAgent || navigator.vendor || window.opera; // https://stackoverflow.com/a/21742107
                     $('Windows').css('visibility', 'hidden');
                     $('Android').css('visibility', 'hidden');
-                    $('iOS').css('visibility', 'visible');
-                }
+                    $('iOS').css('visibility', 'hidden');
+                    if (/android/i.test(userAgent)) {  // https://stackoverflow.com/a/30036015
+                        $('Android').css('visibility', 'visible');
+                    }
+                    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) { // iOS detection from: http://stackoverflow.com/a/9039885/177710
+                        $('iOS').css('visibility', 'visible');
+                    }
+                    else {
+                        $('Windows').css('visibility', 'visible');
+                    }
             });
         </script>
+    </head>
     <body>
         <p id='Windows'> <!-- Using ' is the same: https://stackoverflow.com/questions/2373074/single-vs-double-quotes-vs -->
             <iframe src="PDF/V_2020_08_27_22_01.pdf" height="100%" width="100%" type="application/pdf"> <!-- https://stackoverflow.com/a/7044015 -->
