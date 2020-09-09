@@ -4,16 +4,15 @@
         <title>
             Introducing Rigorous Mathematics
         </title>
+        <script> // https://stackoverflow.com/a/3552496
+            var dateFormat = require('dateformat');
+            var now = new Date();
+            dateFormat(now, "yyyy-mm-DD, HH:MM:SS");
+            document.getElementById("datetime").innerHTML = dateFormat(now, "yyyy-mm-DD, HH:MM:SS");
+        </script>
     </head>
     <body>
-        <p align=right>
-            <script> // https://stackoverflow.com/a/3552496
-                var dateFormat = require('dateformat');
-                var now = new Date();
-                dateFormat(now, "yyyy-mm-DD, HH:MM:SS");
-                document.write(dateFormat);
-            </script>
-        </p>
+        <p id='datetime' align=right></p>
         </align>
         <center>
             <h1>
