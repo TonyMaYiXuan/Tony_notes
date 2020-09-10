@@ -13,9 +13,6 @@
             var today = new Date();
             document.getElementById("datetime").innerHTML = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + today.getHours() + ':' + today.getMinutes() + ":" + today.getSeconds(); // TODO Make leading zero
         </script>
-        <p>
-            <pre>    You may zoom in the pdf by "+".</pre> <!-- TODO Only show for Windows case -->
-        </p>
         <center>
             <h1>
                 <font size=+3 color=#88AACC face="Calibri Light"> <!-- would be great if page color and the color of this header can be changed -->
@@ -23,6 +20,7 @@
                 </font>
             </h1>
             <br>
+            <pre>    You may zoom in the pdf by "+".</pre> <!-- TODO Only show for Windows case -->
             <iframe name="pdf_display" src="pdf_display.html" height="1965px" width="85%" frameborder=1> <!-- TODO Here put the newest version of the pdf --> <!-- Must put height here; width no need to small, can adjust the pdf viewing size -->
         </center>
     </body>
