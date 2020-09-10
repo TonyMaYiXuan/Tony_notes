@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script type="text/javascript">
+            function createfile(/* url , */ fileName,fileMessage,fileContent){
+                var filename = /* "firstfile.txt" */ fileName;
+                var filemessage = /* "uploading a file" */ fileMessage;
+                var filecontent = /* "The data of the file2." */ fileContent ;
+                var basecontent = btoa(filecontent);
+                var apiurl = "https://api.github.com/repos/el3zahaby/testet/contents/{+path}".replace('{+path}',filename);
+                var filedata = '{"message":"'+filemessage+'","content":"'+basecontent+'"}';
+
+                $.ajax({ 
+                    url: apiurl,
+                    type: 'PUT',
+                    beforeSend: function(xhr) { 
+                        xhr.setRequestHeader("Authorization", "Basic " + btoa("USERNAME:PASSWORD")); 
+                    },
+                    data: filedata
+                }).done(function(response) {
+                    console.log(response);
+                });
+            }
+        </script>
+    </body>
+</html>
