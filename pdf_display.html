@@ -33,14 +33,14 @@
             </center>
         </p>
         <script type="text/javascript">
-		    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            if (isMobile) {
-                $('Desktop').css('visibility', 'hidden');
-                $('Mobile').css('visibility', 'visible');
-            } else {
-                $('Desktop').css('visibility', 'visible');
-                $('Mobile').css('visibility', 'mobile');
-            }
-    	</script>
+	    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+	    if (isMobile) {
+		document.getElementById('Mobile').style.display = "block";
+	        document.getElementById('Desktop').style.display = "none";
+	    } else {
+		document.getElementById('Desktop').style.display = "block";
+		document.getElementById('Mobile').style.display = "none";
+	    }
+	</script>
     </body>
 </html>
