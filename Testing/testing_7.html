@@ -11,7 +11,7 @@
                     repo: 'Introducing_Rigorous_Mathematics',
                     path: 'PDF'
                 });
-                response.data.forEach(datum => if (datum.name.substring(datum.name.lastIndexOf("."), datum.name.length - 1) === ".pdf") {arr_file_name[arr_file_name.length] = datum.name; });
+                response.data.forEach(datum => {if (datum.name.substring(datum.name.lastIndexOf("."), datum.name.length - 1) === ".pdf") {arr_file_name[arr_file_name.length] = datum.name; }}); // {} to enclose "if", see https://stackoverflow.com/a/37627802
             }
             showFile();
             arr_file_name.sort(function(string_a, string_b){return string_b.localeCompare(string_a)}); // descending order; necessary to sort as it seems not be sorted in alphabetical order of its name when "respond"
