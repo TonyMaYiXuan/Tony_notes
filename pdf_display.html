@@ -13,12 +13,11 @@
             </center>
         </p>
         <script type="text/javascript"> <!-- remember "type=..." here -->
-            var userAgent = navigator.userAgent || navigator.vendor; // https://stackoverflow.com/a/21742107
-            if (/android/i.test(userAgent)) {
+            if (/android/i.test(navigator.userAgent)) {
                 document.getElementById('Desktop').style.display = "none";
                 document.getElementById('Android').style.display = "block" /* show */;
                 document.getElementById('iOS').style.display = "none";
-            } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
+            } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
                 document.getElementById('Desktop').style.display = "none";
                 document.getElementById('Android').style.display = "none";
                 document.getElementById('iOS').style.display = "block" /* show */;
