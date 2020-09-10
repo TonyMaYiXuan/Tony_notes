@@ -4,18 +4,18 @@
         <script type="text/JavaScript">
             $(document).ready(function () { // https://stackoverflow.com/a/24077808
                 var userAgent = navigator.userAgent || navigator.vendor || window.opera; // https://stackoverflow.com/a/21742107
-                    $('Windows').css('visibility', 'hidden');
-                    $('Android').css('visibility', 'hidden');
-                    $('iOS').css('visibility', 'hidden');
-                    if (/android/i.test(userAgent)) {  // https://stackoverflow.com/a/30036015
-                        $('Android').css('visibility', 'visible');
-                    }
-                    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) { // iOS detection from: http://stackoverflow.com/a/9039885/177710
-                        $('iOS').css('visibility', 'visible');
-                    }
-                    else {
-                        $('Windows').css('visibility', 'visible');
-                    }
+//                    $('Windows').css('visibility', 'hidden');
+  //                  $('Android').css('visibility', 'hidden');
+    //                $('iOS').css('visibility', 'hidden');
+      //              if (/android/i.test(userAgent)) {  // https://stackoverflow.com/a/30036015
+        //                $('Android').css('visibility', 'visible');
+          //          }
+            //        else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) { // iOS detection from: http://stackoverflow.com/a/9039885/177710
+              //          $('iOS').css('visibility', 'visible');
+                //    }
+                  //  else {
+                    //    $('Windows').css('visibility', 'visible');
+                    //}
             });
         </script>
     </head>
