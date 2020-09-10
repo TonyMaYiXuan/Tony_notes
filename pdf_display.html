@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <p id='Desktop'> <!-- Using ' is the same: https://stackoverflow.com/questions/2373074/single-vs-double-quotes-vs -->
-            <iframe src="PDF/V_2020_08_27_22_01.pdf" height="300px" width="100%" type="application/pdf"></iframe> <!-- https://stackoverflow.com/a/7044015 --> <!-- Use "1500px" instead of "1500" and remember to close the <iframe> -->
-    	</p>
-        <p id='Mobile'>
-            <iframe src="https://drive.google.com/file/d/1UMoc-KSDPXg4v8sF_hy4qzTBo_CHVwaa/preview" width="640" height="480"></iframe>
+        <p id='Desktop'> <!-- Using ' and " are the same: https://stackoverflow.com/questions/2373074/single-vs-double-quotes-vs -->
+            <iframe src="PDF/V_2020_08_27_22_01.pdf" width="100%" height="1920px" type="application/pdf"></iframe> <!-- https://stackoverflow.com/a/7044015 --> <!-- Use "1500px" instead of "1500" -->
+		</p>
+        <p id='Android'>
+            <iframe src="https://drive.google.com/file/d/1UMoc-KSDPXg4v8sF_hy4qzTBo_CHVwaa/preview" width="100%" height="1920px"></iframe> <!-- remember to add "</iframe>" ! -->
         </p>
         <p id='iOS'>
             <center>
-                <pre>Sorry, iOS is currently not supported.</pre>
+				<pre>Sorry, iOS is currently not supported <sub>as I am too lazy to implement</sub>.</pre>
             </center>
         </p>
         <script type="text/javascript">
-	    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-	    if (isMobile) {
-		document.getElementById('Mobile').style.display = "block" /* show */;
-	        document.getElementById('Desktop').style.display = "none";
-	    } else {
-		document.getElementById('Desktop').style.display = "block";
-		document.getElementById('Mobile').style.display = "none";
-	    }
-	</script>
+			var userAgent = navigator.userAgent || navigator.vendor; // https://stackoverflow.com/a/21742107
+			var isMobile = /iPhone|iPad|iPod|Android/i.test(userAgent);
+			document.getElementById('Desktop').style.display = "none";
+			document.getElementById('Android').style.display = "none";
+			document.getElementById('iOS').style.display = "none";
+			if (/android/i.test(userAgent)) {
+				document.getElementById('Android').style.display = "block" /* show */;
+			} else if (/iPhone|iPad|iPod/i.test(userAgent) {
+				document.getElementById('iOS').style.display = "block" /* show */;
+			else {
+				document.getElementById('Desktop').style.display = "block" /* show */;
+			}
+		</script>
     </body>
 </html>
