@@ -12,20 +12,17 @@
                 <pre>Sorry, iOS is currently not supported <sub>as I am too lazy to implement</sub>.</pre>
             </center>
         </p>
-        <script type="text/javascript"> <!-- remember "type=..." here -->
+        <script type="text/javascript"> // remember "type=..." here and the comment in javascript is not "<!-- -->"
+            document.getElementById('Desktop').style.display = "none" /* not show */;
+            document.getElementById('Android').style.display = "none";
+            document.getElementById('iOS').style.display = "none";
             if (/android/i.test(navigator.userAgent)) {
-                document.getElementById('Desktop').style.display = "none";
                 document.getElementById('Android').style.display = "block" /* show */;
-                document.getElementById('iOS').style.display = "none";
             } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                document.getElementById('Desktop').style.display = "none";
-                document.getElementById('Android').style.display = "none";
                 document.getElementById('iOS').style.display = "block" /* show */;
             }
             else {
                 document.getElementById('Desktop').style.display = "block" /* show */;
-                document.getElementById('Android').style.display = "none";
-                document.getElementById('iOS').style.display = "none";
             }
         </script>
     </body>
