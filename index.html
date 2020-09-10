@@ -4,15 +4,18 @@
         <title>
             Introducing Rigorous Mathematics
         </title>
-        <link rel='icon' href='favicon.ico' type='image/x-icon'/ >
+        <link rel="icon" href="favicon.ico" type="image/x-icon"/ >
     </head>
     <body>
         <font face="Calibri">
             <p id="datetime" align=right>T</p>
         </font>
-        <script type='text/javascript'>
+        <script type="text/javascript">
+            function addLeadingZero(x) {
+                return (x < 10)? ("0" + x): x;
+            }
             var today = new Date();
-            document.getElementById("datetime").innerHTML = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + today.getHours() + ':' + today.getMinutes() + ":" + today.getSeconds(); // TODO Make leading zero
+            document.getElementById("datetime").innerHTML = today.getFullYear() + "-" + addLeadingZero(today.getMonth() + 1) + "-" + addLeadingZero(today.getDate()) + " " + addLeadingZero(today.getHours()) + ":" + addLeadingZero(today.getMinutes()) + ":" + addLeadingZero(today.getSeconds()); // TODO Make leading zero
         </script>
         <center>
             <h1>
@@ -23,7 +26,7 @@
         </center>
         <ul>
             <li>
-                <font size=+1 color=#666666>
+                <font size=+1 color=#888866>
                     <pre>You may zoom in the pdf by "<b>Ctrl</b> + <b>=</b>".</pre> <!-- TODO Only show for Windows case -->
                 </font>
             </li>
