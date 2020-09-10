@@ -16,6 +16,8 @@
             }
             var today = new Date();
             document.getElementById("datetime").innerHTML = today.getFullYear() + "-" + addLeadingZero(today.getMonth() + 1) + "-" + addLeadingZero(today.getDate()) + " " + addLeadingZero(today.getHours()) + ":" + addLeadingZero(today.getMinutes()) + ":" + addLeadingZero(today.getSeconds()); // TODO Make leading zero
+            document.getElementByID("datetime").style.color = #50F0A0 /* just a random color */;
+            document.getElementByID("datetime").style.face = "Consolas";
         </script>
         <center>
             <h1>
