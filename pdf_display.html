@@ -13,12 +13,13 @@
             </center>
         </p>
         <script type="text/javascript"> // remember "type=..." here and the comment in javascript is not "<!-- -->"
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera; // https://stackoverflow.com/a/21742107
             document.getElementById('Desktop').style.display = "none" /* not show */;
             document.getElementById('Android').style.display = "none";
             document.getElementById('iOS').style.display = "none";
-            if (/android/i.test(navigator.userAgent)) {
+            if (/android/i.test(userAgent)) {
                 document.getElementById('Android').style.display = "block" /* show */;
-            } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
                 document.getElementById('iOS').style.display = "block" /* show */;
             }
             else {
