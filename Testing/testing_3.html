@@ -1,0 +1,17 @@
+<!DOCTYPE html> <!-- testing_1.html and testing_2.html both used -->
+<html>
+	<body>
+		<p id="testing">
+			Testing.
+		</p>
+        <script type="text/javascript">
+            var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            var element = document.getElementById('testing');
+            if (isMobile) {
+                element.style.display = "block"; /* show */
+            } else {
+                element.style.display = "none"; /* not show */
+            }
+        </script>
+	</body>
+</html>
