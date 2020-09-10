@@ -11,14 +11,14 @@
                     repo: 'Introducing_Rigorous_Mathematics',
                     path: 'PDF'
                 });
-                response.data.forEach(datum => {if (datum.name.substring(datum.name.lastIndexOf("."), datum.name.length - 1) === ".pdf") {arr_file_name[arr_file_name.length] = datum.name; }}); // {} to enclose "if", see https://stackoverflow.com/a/37627802
+                response.data.forEach(datum => {if (datum.name.substring(datum.name.lastIndexOf("."), datum.name.length) === ".pdf") {arr_file_name[arr_file_name.length] = datum.name; }}); // {} to enclose "if", see https://stackoverflow.com/a/37627802
+                arr_file_name.sort(function(string_a, string_b){return string_b.localeCompare(string_a)}); // descending order; maybe it's already sorted in ascending alphabetical order of its name when "respond"
+                document.getElementById('main_display').src = "PDF/" + arr_file_name[0];
             }
-            showFile();
-            arr_file_name.sort(function(string_a, string_b){return string_b.localeCompare(string_a)}); // descending order; necessary to sort as it seems not be sorted in alphabetical order of its name when "respond"
-            document.getElementById("newest_file").innerHTML = arr_file_name[0];
+            showFile(); // be aware that the async function may not be executed before the following lines
         </script>
     </head>
     <body>
-        <p id="newest_file"></p>
+        <iframe id="main_display" width="100%" height="1440px" frameborder=0></iframe>
     </body>
 </html>
