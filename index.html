@@ -4,16 +4,15 @@
         <title>
             Introducing Rigorous Mathematics
         </title>
-        <script> // https://stackoverflow.com/a/3552496
-            var dateFormat = require('dateformat');
-            var now = new Date();
-            dateFormat(now, "yyyy-mm-DD, HH:MM:SS");
-            document.getElementById("datetime").innerHTML = dateFormat(now, "yyyy-mm-DD, HH:MM:SS");
-        </script>
     </head>
     <body>
-        <p id='datetime' align=right></p>
-        </align>
+        <font face="Calibri">
+            <p id="datetime" align=right>T</p>
+        </font>
+        <script type='text/javascript'>
+            var today = new Date();
+            document.getElementById("datetime").innerHTML = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + today.getHours() + ':' + today.getMinutes() + ":" + today.getSeconds(); // TODO Make leading zero
+        </script>
         <center>
             <h1>
                 <font size=+3 color=#88AACC face="Calibri Light"> <!-- would be great if page color and the color of this header can be changed -->
@@ -21,7 +20,7 @@
                 </font>
             </h1>
             <br>
-            <iframe name="pdf_display" src="pdf_display.html" height="1965px" width="70%" frameborder=1> <!-- TODO Here put the newest version of the pdf --> <!-- Must put height here -->
+            <iframe name="pdf_display" src="pdf_display.html" height="1965px" width="85%" frameborder=1> <!-- TODO Here put the newest version of the pdf --> <!-- Must put height here; width no need to small, can adjust the pdf viewing size -->
         </center>
     </body>
 </html>
