@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="module">
+            import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
+            const octokit = new Octokit();
+            var arr_file_name = [];
+            async function showFile() {
+                const response = await octokit.request('GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF/Links_Google_Drive_PDF.txt', {
+                    owner: 'tonymayixuan',
+                    repo: 'Introducing_Rigorous_Mathematics',
+                    path: 'PDF/Links_Google_Drive_PDF.txt'
+                });
+                var arr = atob(response.data.content).split("\n");
+                console.log(arr);
+                document.getElementById("testing").innerHTML = arr[arr.length - 2];
+            }
+            showFile();
+        </script>
+    </head>
+    <body>
+        <p id="testing">Not-decoded</p>
+    </body>
+</html>
