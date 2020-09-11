@@ -4,10 +4,10 @@
         <p id="Desktop"> <!-- Using ' and " are the same: https://stackoverflow.com/questions/2373074/single-vs-double-quotes-vs -->
             <!-- <iframe src="PDF/V_2020_08_27_22_01.pdf" width="100%" height="1440px" type="application/pdf"></iframe> --> <!-- Need "px" --> <!-- REMEMBER </iframe> --> <!-- https://stackoverflow.com/a/7044015 -->
             Testing!!!!
-            <iframe src="https://drive.google.com/file/d/1UMoc-KSDPXg4v8sF_hy4qzTBo_CHVwaa/edit?embedded=true" width="100%" height="1440px"></iframe>
+            <iframe id="desktop_display" width="100%" height="1440px"></iframe>
         </p>
         <p id="Android">
-            <iframe src="https://drive.google.com/file/d/1UMoc-KSDPXg4v8sF_hy4qzTBo_CHVwaa/preview" width="100%" height="1440px"></iframe>
+            <iframe id="android_display" width="100%" height="1440px"></iframe>
         </p>
         <font size=#444444 size=+1 face="Consolas">
             <p id="iOS" align=center> <!-- Don't put <center> or <pre> inside <p></p> or else you cannot control whether it is displayed by the below script -->
@@ -15,18 +15,41 @@
             </p>
         </font>
         <script type="text/javascript"> // remember "type=..." here and the comment in javascript is not "<!-- -->"
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera; // carefully copy from https://stackoverflow.com/a/21742107
-            document.getElementById("Desktop").style.display = "none" /* not show */;
-            document.getElementById("Android").style.display = "none";
-            document.getElementById("iOS").style.display = "none";
-            if (/android/i.test(userAgent)) {
-                document.getElementById("Android").style.display = "block" /* show */;
-            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                document.getElementById("iOS").style.display = "block" /* show */;
+            function hideAll() {
+                document.getElementById("Desktop").style.display = "none";
+                document.getElementById("Android").style.display = "none";
+                document.getElementById("iOS").style.display = "none";
             }
-            else {
-                document.getElementById("Desktop").style.display = "block" /* show */;
+            hideAll();
+            import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
+            const octokit = new Octokit();
+            async function showFile() {
+                var arrPDFFileName = [], arrDriveFileName = [], arrDriveFileName_tmp = [];
+                var userAgent = navigator.userAgent || navigator.vendor || window.opera; // carefully copy from https://stackoverflow.com/a/21742107
+                var tmp_string = (/android/i.test(userAgent)? '/Links_Google_Drive_PDF.txt': '');
+                const response = await octokit.request('GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF/' + tmp_string), {
+                    owner: 'tonymayixuan',
+                    repo: 'Introducing_Rigorous_Mathematics',
+                    path: 'PDF' + tmp_string
+                });
+                if (/android/i.test(userAgent)) { //TODO It may be even better if you consider the resolution of the screen and put the website respectively
+                    arrDriveFileName_tmp = atob(response.data.content).split("\n");
+                    for (var i = arrDriveFileName_tmp.length - 2 /* last line is empty */; i >= 0; i--) {
+                        arrDriveFileName.push("https://drive.google.com/file/d/" + arrDriveFileName_tmp[i] + "/preview");
+                    }
+                    document.getElementById('android_display').src = arrDriveFileName[0];
+                    document.getElementById("Android").style.display = "block" /* show */;
+                } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                    document.getElementById("iOS").style.display = "block" /* show */;
+                }
+                else /* desktop */ {
+                    response.data.forEach(datum => {if (datum.name.substring(datum.name.lastIndexOf("."), datum.name.length) === ".pdf") {arrPDFFileName[arrPDFFileName.length] = datum.name; }}); // {} to enclose "if", see https://stackoverflow.com/a/37627802
+                    arrPDFFileName.sort(function(string_a, string_b){return string_b.localeCompare(string_a)}); // descending order; maybe it's already sorted in ascending alphabetical order of its name when "respond"
+                    document.getElementById('desktop_display').src = "https://tonymayixuan.github.io/Introducing_Rigorous_Mathematics/PDF/" + arrPDFFileName[0];
+                    document.getElementById("Desktop").style.display = "block" /* show */;
+                }
             }
+            showFile(); // be aware that the async function may not be executed before the following lines
         </script>
     </body>
 </html>
