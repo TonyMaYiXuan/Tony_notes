@@ -20,7 +20,7 @@
             async function showFile() {
                 var arrPDFFileName = [], arrDriveFileName = [], arrDriveFileName_tmp = [];
                 var userAgent = navigator.userAgent || navigator.vendor || window.opera; // carefully copy from https://stackoverflow.com/a/21742107
-                var tmp_string = (/android/i.test(userAgent)? /* "/Links_Google_Drive_PDF.txt" */ "": "");
+                var tmp_string = /* (/android/i.test(userAgent)? */ "/Links_Google_Drive_PDF.txt" /*: "") */;
                 const response = await octokit.request(('GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF/' + tmp_string), {
                     owner: 'tonymayixuan',
                     repo: 'Introducing_Rigorous_Mathematics',
