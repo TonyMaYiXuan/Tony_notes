@@ -14,45 +14,6 @@
                 document.getElementById("non_iOS").style.display = "none";
                 document.getElementById("iOS").style.display = "none";
             }
-            var base64 = {};
-            base64.PADCHAR = '=';
-            base64.ALPHA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-            base64.getbyte64 = function(s,i) {
-                return base64.ALPHA.indexOf(s.charAt(i));
-            }
-            base64.decode = function(s) { // I suppose no need throw exception, but you may refer to here: https://stackoverflow.com/a/11527586
-                s = "" + s; // convert to string
-                var getbyte64 = base64.getbyte64;
-                var pads, i, b10;
-                var imax = s.length;
-                if (imax === 0) {
-                    return s;
-                }
-                pads = 0
-                if (s.charAt(imax - 1) === base64.PADCHAR) {
-                    pads = 1;
-                    if (s.charAt(imax - 2) === base64.PADCHAR) {
-                        pads = 2;
-                    }
-                    imax -= 4;
-                }
-                var x = [];
-                for (i = 0; i < imax; i += 4) {
-                    b10 = (getbyte64(s,i) << 18) | (getbyte64(s,i+1) << 12) | (getbyte64(s,i+2) << 6) | getbyte64(s,i+3);
-                    x.push(String.fromCharCode(b10 >> 16, (b10 >> 8) & 0xff, b10 & 0xff));
-                }
-                switch (pads) {
-                case 1:
-                    b10 = (getbyte64(s,i) << 18) | (getbyte64(s,i+1) << 12) | (getbyte64(s,i+2) << 6);
-                    x.push(String.fromCharCode(b10 >> 16, (b10 >> 8) & 0xff));
-                    break;
-                case 2:
-                    b10 = (getbyte64(s,i) << 18) | (getbyte64(s,i+1) << 12);
-                    x.push(String.fromCharCode(b10 >> 16));
-                    break;
-                }
-                return x.join('');
-            }
             import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
             const octokit = new Octokit();
             async function showFile() {
@@ -66,7 +27,7 @@
                 });
                 hideAll();
                 if (/android/i.test(userAgent)) { //TODO Better even take into account the resolution of the screen and put the website respectively
-                    arrDriveFileName_tmp = base64.decode(response.data.content).split("\n"); /* atob is not supported in my Android browser */
+                    arrDriveFileName_tmp = atob(response.data.content).split("\n");
                     for (var i = arrDriveFileName_tmp.length - 2 /* last element empty */; i >= 0; i--) {
                         arrDriveFileName.push("https://drive.google.com/file/d/" + arrDriveFileName_tmp[i] + "/preview");
                     }
