@@ -3,8 +3,8 @@
     <body>
         <script type="text/javascript">
             var lines;
-            const fs = require('fs');
-            fs.readFile('https://tonymayixuan.github.io/Introducing_Rigorous_Mathematics/PDF/Links_Google_Drive_PDF.txt', (err, data) => {
+            const fs = require('fs'); // Uncaught ReferenceError: require is not defined (F12 in Edge)
+            fs.readFile('https://tonymayixuan.github.io/Introducing_Rigorous_Mathematics/PDF/Links_Google_Drive_PDF.txt', (err, data) => { //TODO Deal with exception / error
                 if (err) throw err; 
                 lines = data.toString().split('\n'); //an array
             });
