@@ -5,14 +5,14 @@
             import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
             const octokit = new Octokit();
             var arr_file_name = [];
-            var base64 = {};
-            base64.PADCHAR = '=';
-            base64.ALPHA = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-            base64.getbyte64 = function(s,i) {
-                return base64.ALPHA.indexOf(s.charAt(i));
-            }
-            base64.decode = function(s) { // I suppose no need throw exception, but you may refer to here: https://stackoverflow.com/a/11527586
-                s = "" + s; // convert to string
+            var base64 = {
+                PADCHAR: "=",
+                ALPHA: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
+                getbyte64: function (str, i) {
+                    return base64.ALPHA.indexOf(str.charAt(i));
+                }
+            };
+            base64.decode = function(s /* string */) { // I deleted throwing of exception, but you may refer to here: https://stackoverflow.com/a/11527586
                 var getbyte64 = base64.getbyte64;
                 var pads, i, b10;
                 var imax = s.length;
