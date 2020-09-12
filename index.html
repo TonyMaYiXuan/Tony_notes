@@ -33,8 +33,14 @@
                 </font>
             </li>
         </ul>
-        <center>
-            <iframe name="display" src="https://drive.google.com/file/d/1XBfwAge0TQqvqhh2g90xd1IazKnI0GP8/preview" height="1485px" width="98%" frameborder=0></iframe> <!-- TODO Here put the newest version of the pdf --> <!-- Must put height here; width no need to small, can adjust the pdf viewing size -->
-        </center>
+        <p id="non_iOS" align=center>
+            <iframe id="main_display" width="96%" height="1440px" frameborder=0 type="application/pdf"></iframe> <!-- Need "px" --> <!-- I don't know if should add type="application/pdf" -->
+        </p>
+        <font color="#444444" size=+2 face="Consolas">
+            <p id="iOS" align=center> <!-- Don't put <center> or <pre> inside <p></p> or else you cannot control whether it is displayed by the below script -->
+                Sorry, iOS is currently not supported <sub>as I am too lazy to implement</sub>.
+            </p>
+        </font>
+        <script src="pdf_display.js"></script>
     </body>
 </html>
