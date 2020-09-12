@@ -53,7 +53,6 @@
                 });
                 hideAll();
                 if (/android/i.test(userAgent)) { //TODO Better even take into account the resolution of the screen and put the website respectively
-                    document.getElementById("testing").innerHTML = atob(response.data.content).split("\n");
                     arrDriveFileName_tmp = atob(response.data.content).split("\n");
                     for (var i = arrDriveFileName_tmp.length - 2 /* last element empty */; i >= 0; i--) {
                         arrDriveFileName.push("https://drive.google.com/file/d/" + arrDriveFileName_tmp[i] + "/preview");
