@@ -2,22 +2,22 @@
 <html>
     <head>
         <title>
-            Introducing Rigorous Mathematics
+            Tony's Notes: Rigorous Mathematics
         </title>
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <style>
-            #first_column {
-                width: 12%;
+            #menu_div {
+                width: 14%;
                 float: left;
             }
-            #second_column {
-                width: 88%;
+            #display_div {
+                width: 86%;
                 float: right;
             }
         </style>
     </head>
     <body>
-        <font face="Calibri">
+        <font face="Calibri" color=red>
             <p id="datetime" align=right>
                 <b>
                     --- PAGE LOADING ---
@@ -32,12 +32,12 @@
                 </font>
             </h1>
         </center>
-        <div id="first_column">
-            <table id="menu_table" border=1 cellspacing=0 cellpadding=15 align=center valign=top width="100%" bgcolor="#00FFCC"></table>
+        <div id="menu_div">
+            <table id="menu_table" border=1 cellspacing=0 cellpadding=16 align=center valign=top width="100%" bgcolor="#00FFCC"></table>
         </div>
-        <div id="second_column">
+        <div id="display_div">
             <p id="non_iOS" align=center>
-                <iframe id="main_display" width="96%" height="1280px" frameborder=0 type="application/pdf"></iframe> <!-- Need "px" --> <!-- I don't know if should add type="application/pdf" -->
+                <iframe name="main_display" id="main_display" width="96%" height="1280px" frameborder=0 type="application/pdf" allowfullscreen></iframe> <!-- Need "px" --> <!-- I don't know if should add type="application/pdf" -->
             </p>
             <font color="#444444" size=+2 face="Consolas">
                 <p id="iOS" align=center> <!-- Don't put <center> or <pre> inside <p></p> or else you cannot control whether it is displayed by the below script -->
@@ -56,43 +56,43 @@
                 document.getElementById("datetime").style.color = "#50F0A0"; // NEED quotes here
                 document.getElementById("datetime").style.face = "Consolas";
             }
-            function hideAll() {
-                document.getElementById("non_iOS").style.display = "none";
-                document.getElementById("iOS").style.display = "none";
-            }
+            document.getElementById("non_iOS").style.display = "none";
+            document.getElementById("iOS").style.display = "none";
             import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
-            const octokit = new Octokit();
             async function showFile() {
-                var arrPDFFileName = [], arrDriveFileName = [], arrDriveFileName_tmp = [];
-                var userAgent = navigator.userAgent || navigator.vendor || window.opera; // carefully copy from https://stackoverflow.com/a/21742107
-                const response_1 = await octokit.request(("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF"), {
-                    owner: 'tonymayixuan',
-                    repo: 'Introducing_Rigorous_Mathematics',
-                    path: 'PDF'
-                });
-                const response_2 = await octokit.request(("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF/Links_Google_Drive_PDF.txt"), {
-                    owner: 'tonymayixuan',
-                    repo: 'Introducing_Rigorous_Mathematics',
-                    path: 'PDF/Links_Google_Drive_PDF.txt'
-                });
-                hideAll();
-                if (/android/i.test(userAgent)) { //TODO Better even take into account the resolution of the screen and put the website respectively
-                    arrDriveFileName_tmp = atob(response_2.data.content).split("\n");
-                    for (var i = arrDriveFileName_tmp.length - 2 /* last element empty */; i >= 0; i--) {
-                        arrDriveFileName.push("https://drive.google.com/file/d/" + arrDriveFileName_tmp[i] + "/preview");
+                if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                    document.getElementById("iOS").style.display = "block";
+                    document.getElementById("menu_table").innerHTML = "<tr><td height=\"700px\" align=center><font size=+1 face=\"Consolas\">iOS not<br>supported</font></td></tr>";
+                } else {
+                    var arrPDF = [], arrDriveLink_tmp = [], userAgent = navigator.userAgent || navigator.vendor || window.opera; // carefully copy from https://stackoverflow.com/a/21742107
+                    var octokit = new Octokit(); // to display on Android browser it must not be "const" here if there are multiple "response" below
+                    const response_1 = await octokit.request("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF", {
+                        owner: 'tonymayixuan',
+                        repo: 'Introducing_Rigorous_Mathematics',
+                        path: 'PDF'
+                    });
+                    response_1.data.forEach(datum => {if (datum.name.substring(datum.name.lastIndexOf("."), datum.name.length) === ".pdf") {arrPDF[arrPDF.length] = [datum.name.substr(2, datum.name.length - 6), "https://tonymayixuan.github.io/Introducing_Rigorous_Mathematics/PDF/" + datum.name]; }});
+                    arrPDF.sort(function (a,b) {return b[0].localeCompare(a[0])}); // already ascending alphabetical order of its name when "response_1"
+                    if (/android/i.test(userAgent)) { //TODO Better even take into account the resolution of the screen and put the website respectively
+                        const response_2 = await octokit.request("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF/Links_Google_Drive_PDF.txt", {
+                            owner: 'tonymayixuan',
+                            repo: 'Introducing_Rigorous_Mathematics',
+                            path: 'PDF/Links_Google_Drive_PDF.txt'
+                        });
+                        arrDriveLink_tmp = atob(response_2.data.content).split("\n");
+                        //TODO If arrDriveLink_tmp.length <> arrPDFData.length + 1 then may throw error (last element of arrDriveLink_tmp is empty)
+                        for (var i = 0; i < arrPDF.length; i++) {
+                            arrPDF[i][1] = "https://drive.google.com/file/d/" + arrDriveLink_tmp[arrDriveLink_tmp.length - 2 - i] + "/preview";
+                        }
                     }
                     document.getElementById("non_iOS").style.display = "block";
-                    document.getElementById("main_display").src = arrDriveFileName[0];
-                } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                    document.getElementById("iOS").style.display = "block";
+                    document.getElementById("main_display").src = arrPDF[0][1];
+                    document.getElementById("menu_table").innerHTML += "<tr><td height=\"65px\" align=center><font size=+2 face=\"Calibri\"><a href=\"tips.html\" target=\"main_display\">Tips</a></font></td></tr>"; // here target="main_display" is the name of the iframe, not id
+                    for (var i = 0; i < arrPDF.length; i++) {
+                        document.getElementById("menu_table").innerHTML += "<tr><td height=\"35px\" align=center><font size=+1 face=\"Calibri\"><a href=\"" + arrPDF[i][1] + "\" target=\"main_display\">" + arrPDF[i][0] + "</a></font></td></tr>";
+                    }
                 }
-                else {
-                    response_1.data.forEach(datum => {if (datum.name.substring(datum.name.lastIndexOf("."), datum.name.length) === ".pdf") {arrPDFFileName[arrPDFFileName.length] = datum.name; }}); // {} to enclose "if", see https://stackoverflow.com/a/37627802
-                    arrPDFFileName.sort(function (string_a, string_b) {return string_b.localeCompare(string_a)}); // descending order; already ascending alphabetical order of its name when "response"
-                    document.getElementById("non_iOS").style.display = "block";
-                    document.getElementById("main_display").src = "https://tonymayixuan.github.io/Introducing_Rigorous_Mathematics/PDF/" + arrPDFFileName[0];
-                }
-                datetime_display(); // indicating that the page is loaded
+                datetime_display(); // after the page is loaded (need to put inside this async function)
             }
             showFile(); // be aware that the async function may not be EXECUTED BEFORE the following lines
         </script>
