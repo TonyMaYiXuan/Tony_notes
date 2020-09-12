@@ -61,8 +61,8 @@
             document.getElementById("non_iOS").style.display = "none";
             document.getElementById("iOS").style.display = "none";
             document.getElementById("testing").style.color = "#50F0A0";
-            import {Octokit} from "https://cdn.skypack.dev/@octokit/rest";
-            document.getElementById("testing").style.color = "#A0F000";
+            import { Octokit } from "https://cdn.skypack.dev/@octokit/rest"; /* need space around "Octokit" */
+            document.getElementById("testing").style.color = "#000000";
             const octokit = new Octokit();
             async function showFile() {
                 if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
