@@ -71,10 +71,10 @@
                     var arrPDFData = [];
                     var arrDriveLink_tmp = [];
                     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-                    document.getElementById("testing").innerHTML = "Zeroth passed.";
-                    const octokit_1 = new Octokit();
-                    document.getElementById("testing").innerHTML += "First passed.";
-                    const response_1 = await octokit_1.request(("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF"), {
+                    document.getElementById("testing").innerHTML = "Zeroth passed."; 
+                    const octokit = new Octokit();
+                    document.getElementById("testing").innerHTML += " First passed.";
+                    const response_1 = await octokit.request(("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF"), {
                         owner: 'tonymayixuan',
                         repo: 'Introducing_Rigorous_Mathematics',
                         path: 'PDF'
