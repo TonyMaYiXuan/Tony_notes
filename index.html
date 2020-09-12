@@ -65,7 +65,7 @@
             async function showFile() {
                 if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
                     document.getElementById("iOS").style.display = "block";
-                    document.getElementById("menu_table").innerHTML = "<tr><td height=\"700px\" align=center><font size=+1 face=\"Consolas\">iOS not supported</font></td></tr>";
+                    document.getElementById("menu_table").innerHTML = "<tr><td height=\"700px\" align=center><font size=+1 face=\"Consolas\">iOS not<br>supported</font></td></tr>";
                 }
                 else {
                     document.getElementById("testing").innerHTML = "First passed.";
@@ -99,6 +99,7 @@
                 }
                 datetime_display(); // after loading the page (need to put inside this async function)
             }
+            document.getElementById("testing").innerHTML += "This passed.";
             showFile(); // be aware that the async function may not be EXECUTED BEFORE the following lines
         </script>
     </body>
