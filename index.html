@@ -65,15 +65,19 @@
             async function showFile() {
                 var arrPDFFileName = [], arrDriveFileName = [], arrDriveFileName_tmp = [];
                 var userAgent = navigator.userAgent || navigator.vendor || window.opera; // carefully copy from https://stackoverflow.com/a/21742107
-                var tmp_string = ((/android/i.test(userAgent))? "/Links_Google_Drive_PDF.txt" : "");
-                const response = await octokit.request(("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF" + tmp_string), {
+                const response_1 = await octokit.request(("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF"), {
                     owner: 'tonymayixuan',
                     repo: 'Introducing_Rigorous_Mathematics',
-                    path: 'PDF' + tmp_string
+                    path: 'PDF'
+                });
+                const response_2 = await octokit.request(("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF/Links_Google_Drive_PDF.txt"), {
+                    owner: 'tonymayixuan',
+                    repo: 'Introducing_Rigorous_Mathematics',
+                    path: 'PDF/Links_Google_Drive_PDF.txt'
                 });
                 hideAll();
                 if (/android/i.test(userAgent)) { //TODO Better even take into account the resolution of the screen and put the website respectively
-                    arrDriveFileName_tmp = atob(response.data.content).split("\n");
+                    arrDriveFileName_tmp = atob(response_1.data.content).split("\n");
                     for (var i = arrDriveFileName_tmp.length - 2 /* last element empty */; i >= 0; i--) {
                         arrDriveFileName.push("https://drive.google.com/file/d/" + arrDriveFileName_tmp[i] + "/preview");
                     }
