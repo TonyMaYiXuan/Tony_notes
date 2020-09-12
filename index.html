@@ -61,7 +61,7 @@
                 document.getElementById("iOS").style.display = "none";
             }
             import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
-            var octokit = new Octokit();
+            const octokit = new Octokit();
             async function showFile() {
                 var arrPDFFileName = [], arrDriveFileName = [], arrDriveFileName_tmp = [];
                 var userAgent = navigator.userAgent || navigator.vendor || window.opera; // carefully copy from https://stackoverflow.com/a/21742107
@@ -92,6 +92,7 @@
                     document.getElementById("non_iOS").style.display = "block";
                     document.getElementById("main_display").src = "https://tonymayixuan.github.io/Introducing_Rigorous_Mathematics/PDF/" + arrPDFFileName[0];
                 }
+                datetime_display(); // indicating that the page is loaded
             }
             showFile(); // be aware that the async function may not be EXECUTED BEFORE the following lines
         </script>
