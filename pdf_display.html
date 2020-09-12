@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <body>
+        <p id="testing">testing...
+        </p>
         <p id="non_iOS">
             <iframe id="main_display" width="100%" height="1440px" type="application/pdf"></iframe> <!-- Need "px" -->
         </p>
@@ -19,20 +21,22 @@
             async function showFile() {
                 var arrPDFFileName = [], arrDriveFileName = [], arrDriveFileName_tmp = [];
                 var userAgent = navigator.userAgent || navigator.vendor || window.opera; // carefully copy from https://stackoverflow.com/a/21742107
-                var tmp_string = ((/android/i.test(userAgent))? "/Links_Google_Drive_PDF.txt" : "");
+                var tmp_string = /*********** ((/android/i.test(userAgent))? ************/ "/Links_Google_Drive_PDF.txt" /** : "") **/;
                 const response = await octokit.request(("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF" + tmp_string), {
                     owner: 'tonymayixuan',
                     repo: 'Introducing_Rigorous_Mathematics',
                     path: 'PDF' + tmp_string
                 });
                 hideAll();
-                if (/android/i.test(userAgent)) { //TODO Better even take into account the resolution of the screen and put the website respectively
+                if (true /******************************** /android/i.test(userAgent) ********************************/) { //TODO Better even take into account the resolution of the screen and put the website respectively
+                    document.getElementById("testing").innerHTML = atob(response.data.content).split("\n");
                     arrDriveFileName_tmp = atob(response.data.content).split("\n");
                     for (var i = arrDriveFileName_tmp.length - 2 /* last element empty */; i >= 0; i--) {
                         arrDriveFileName.push("https://drive.google.com/file/d/" + arrDriveFileName_tmp[i] + "/preview");
                     }
                     document.getElementById("non_iOS").style.display = "block";
-                    document.getElementById("main_display").src = arrDriveFileName[0];
+                    //document.getElementById("main_display").src = arrDriveFileName[0];
+                    document.getElementById("main_display").src = "https://drive.google.com/file/d/" + "1XBfwAge0TQqvqhh2g90xd1IazKnI0GP8" + "/preview";
                 } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
                     document.getElementById("iOS").style.display = "block";
                 }
