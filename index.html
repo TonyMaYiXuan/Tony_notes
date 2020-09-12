@@ -28,7 +28,7 @@
             </h1>
         </center>
         <div id="first_column">
-            <table id="menu_table" border=1 cellspacing=0 align=center valign=top width="100%" color="#00FFCC"></table>
+            <table id="menu_table" border=1 cellspacing=0 cellpadding=5 align=center valign=top width="100%" color="#00FFCC"></table>
         </div>
         <div id="second_column">
             <p id="non_iOS" align=center>
@@ -41,7 +41,16 @@
             </font>
         </div>
         <!-- The script must be put below the definition of the above paragraph elements; here we must have type="module" -->
-        <script type="module"> 
+        <script type="module">
+            function datetime_display() {
+                function addLeadingZero(x) {
+                    return ((x < 10)? ("0" + x): x);
+                }
+                var today = new Date();
+                document.getElementById("datetime").innerHTML = today.getFullYear() + "-" + addLeadingZero(today.getMonth() + 1) + "-" + addLeadingZero(today.getDate()) + " " + addLeadingZero(today.getHours()) + ":" + addLeadingZero(today.getMinutes()) + ":" + addLeadingZero(today.getSeconds());
+                document.getElementById("datetime").style.color = "#50F0A0"; // NEED quotes here
+                document.getElementById("datetime").style.face = "Consolas";
+            }
             function hideAll() {
                 document.getElementById("non_iOS").style.display = "none";
                 document.getElementById("iOS").style.display = "none";
@@ -80,9 +89,9 @@
                         document.getElementById("menu_table").innerHTML += "<tr><td height=\"45px\" align=center><font size=+1 face=\"Calibri\"><a href=\"" + arrPDFData[i][1] + "\" target=\"main_display\">" + arrPDFData[i][0] + "</a></font></td></tr>";
                     }
                 }
+                datetime_display(); // after loading the page (need to put inside this async function)
             }
             showFile(); // be aware that the async function may not be EXECUTED BEFORE the following lines
         </script>
-        <script type="text/javascript" src="datetime_display.js"></script> <!-- attempt to show after loading the page but I don't know if possible as the above is async function -->
     </body>
 </html>
