@@ -20,7 +20,6 @@
         <font face="Calibri">
             <p id="datetime" align=right>Datetime</p>
         </font>
-        <script type="text/javascript" src="datetime_display.js"></script>
         <center>
             <h1>
                 <font size=+3 color=#88AACC face="Calibri Light"> <!-- would be great if page color and the color of this header can be changed -->
@@ -29,11 +28,11 @@
             </h1>
         </center>
         <div id="first_column">
-            <table id="menu_table" border=1 cellpadding=0 cellspacing=0 align=center valign=top width="100%" color="#00FFCC"></table>
+            <table id="menu_table" border=1 cellspacing=0 align=center valign=top width="100%" color="#00FFCC"></table>
         </div>
         <div id="second_column">
             <p id="non_iOS" align=center>
-                <iframe name="main_display" id="main_display" width="96%" height="1440px" frameborder=0 type="application/pdf" allowfullscreen></iframe> <!-- Need "px" --> <!-- I don't know if should add type="application/pdf" -->
+                <iframe name="main_display" id="main_display" width="96%" height="1280px" frameborder=0 type="application/pdf" allowfullscreen></iframe> <!-- Need "px" --> <!-- I don't know if should add type="application/pdf" -->
             </p>
             <font color="#444444" size=+2 face="Consolas">
                 <p id="iOS" align=center> <!-- Don't put <center> or <pre> inside <p></p> or else you cannot control whether it is displayed by the below script -->
@@ -84,5 +83,6 @@
             }
             showFile(); // be aware that the async function may not be EXECUTED BEFORE the following lines
         </script>
+        <script type="text/javascript" src="datetime_display.js"></script> <!-- attempt to show after loading the page but I don't know if possible as the above is async function -->
     </body>
 </html>
