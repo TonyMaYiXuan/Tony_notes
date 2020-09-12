@@ -55,14 +55,11 @@
                 document.getElementById("datetime").style.color = "#50F0A0"; // NEED quotes here
                 document.getElementById("datetime").style.face = "Consolas";
             }
-            function hideAll() {
-                document.getElementById("non_iOS").style.display = "none";
-                document.getElementById("iOS").style.display = "none";
-            }
+            document.getElementById("non_iOS").style.display = "none";
+            document.getElementById("iOS").style.display = "none";
             import {Octokit} from "https://cdn.skypack.dev/@octokit/rest";
             const octokit = new Octokit();
             async function showFile() {
-                hideAll();
                 if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
                     document.getElementById("iOS").style.display = "block";
                     document.getElementById("menu_table").innerHTML = "<tr><td height=\"700px\" align=center><font size=+1 face=\"Consolas\">iOS not supported</font></td></tr>";
@@ -76,7 +73,7 @@
                     });
                     response_1.data.forEach(datum => {if (datum.name.substring(datum.name.lastIndexOf("."), datum.name.length) === ".pdf") {arrPDFData[arrPDFData.length] = [datum.name.substr(2, datum.name.length - 6), "https://tonymayixuan.github.io/Introducing_Rigorous_Mathematics/PDF/" + datum.name]; }});
                     arrPDFData.sort(function (a, b) {return b[0].localeCompare(a[0])}); // descending order; already ascending alphabetical order of its name when "response"
-                    if (/android/i.test(userAgent)) { //TODO Better even take into account the resolution of the screen and put the website respectively
+                    if (false /*/android/i.test(userAgent)*/) { //TODO Better even take into account the resolution of the screen and put the website respectively
                         const response_2 = await octokit.request(("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF/Links_Google_Drive_PDF.txt"), {
                             owner: 'tonymayixuan',
                             repo: 'Introducing_Rigorous_Mathematics',
