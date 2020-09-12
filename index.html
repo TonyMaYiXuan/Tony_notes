@@ -1,41 +1,15 @@
-<!DOCTYPE html> <!-- https://www.w3schools.com/tags/tag_doctype.asp -->
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Introducing Rigorous Mathematics
-        </title>
-        <link rel="icon" href="favicon.ico" type="image/x-icon"/ >
-    </head>
     <body>
-        <font face="Calibri">
-            <p id="datetime" align=right>Datetime</p>
-        </font>
-        <script type="text/javascript" src="datetime_display.js">
-        </script>
-        <center>
-            <h1>
-                <font size=+3 color=#88AACC face="Calibri Light"> <!-- would be great if page color and the color of this header can be changed -->
-                    Introducing Rigorous Mathematics <font color=#80E040><i><sub>(Tony's notes)</sub></i></font>
-                </font>
-            </h1>
-        </center>
-        <ul>
-            <li>
-                <font size=+1 color="#888866">
-                    <pre>You may zoom in the pdf by "<b>+</b>" or "fit-to-width" and use up/down arrows to scroll.</pre> <!-- TODO Only show for Windows case -->
-                </font>
-            </li>
-        </ul>
-        <p id="non_iOS" align=center>
-            <iframe id="main_display" width="96%" height="1440px" frameborder=0 type="application/pdf"></iframe> <!-- Need "px" --> <!-- I don't know if should add type="application/pdf" -->
+        <p id="non_iOS">
+            <iframe id="main_display" width="100%" height="1440px" type="application/pdf"></iframe> <!-- Need "px" -->
         </p>
         <font color="#444444" size=+2 face="Consolas">
             <p id="iOS" align=center> <!-- Don't put <center> or <pre> inside <p></p> or else you cannot control whether it is displayed by the below script -->
-                Sorry, iOS is currently not supported <sub>as I am too lazy to implement</sub>.
+                Sorry, iOS is currently <b>not</b> supported <sub>as I am too lazy to implement</sub>.
             </p>
         </font>
-        <!-- The script must be put below the definition of the above paragraph elements, and here we must have type="module" -->
-        <script type="module"> 
+        <script type="module"> // remember "type=..." and we use "module" because there is import statement below, see https://usefulangle.com/post/252/script-type-module
             function hideAll() {
                 document.getElementById("non_iOS").style.display = "none";
                 document.getElementById("iOS").style.display = "none";
@@ -53,7 +27,6 @@
                 });
                 hideAll();
                 if (/android/i.test(userAgent)) { //TODO Better even take into account the resolution of the screen and put the website respectively
-                    document.getElementById("testing").innerHTML = atob(response.data.content).split("\n");
                     arrDriveFileName_tmp = atob(response.data.content).split("\n");
                     for (var i = arrDriveFileName_tmp.length - 2 /* last element empty */; i >= 0; i--) {
                         arrDriveFileName.push("https://drive.google.com/file/d/" + arrDriveFileName_tmp[i] + "/preview");
