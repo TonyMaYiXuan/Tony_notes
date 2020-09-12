@@ -68,9 +68,12 @@
                     document.getElementById("menu_table").innerHTML = "<tr><td height=\"700px\" align=center><font size=+1 face=\"Consolas\">iOS not<br>supported</font></td></tr>";
                 }
                 else {
-                    var arrPDFData = [], arrDriveLink_tmp = [], userAgent = navigator.userAgent || navigator.vendor || window.opera;
+                    var arrPDFData = [];
+                    var arrDriveLink_tmp = [];
+                    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+                    document.getElementById("testing").innerHTML = "Zeroth passed.";
                     const octokit_1 = new Octokit();
-                    document.getElementById("testing").innerHTML = "First passed.";
+                    document.getElementById("testing").innerHTML += "First passed.";
                     const response_1 = await octokit_1.request(("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF"), {
                         owner: 'tonymayixuan',
                         repo: 'Introducing_Rigorous_Mathematics',
@@ -101,7 +104,6 @@
                 }
                 datetime_display(); // after loading the page (need to put inside this async function)
             }
-            document.getElementById("testing").innerHTML += "This passed.";
             showFile(); // be aware that the async function may not be EXECUTED BEFORE the following lines
         </script>
     </body>
