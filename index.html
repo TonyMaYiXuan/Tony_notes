@@ -7,18 +7,22 @@
         <link rel="icon" href="favicon.ico" type="image/x-icon"/ >
         <style>
             #first_column {
-                width: 10%;
-                float:left;
+                width: 12%;
+                float: left;
             }
             #second_column {
-                width: 90%;
-                float:right;
+                width: 88%;
+                float: right;
             }
         </style>
     </head>
     <body>
         <font face="Calibri">
-            <p id="datetime" align=right>Datetime - <b>PAGE LOADING...</b></p>
+            <p id="datetime" align=right>
+                <b>
+                    --- PAGE LOADING ---
+                </b>
+            </p>
         </font>
         <center>
             <h1>
@@ -28,11 +32,11 @@
             </h1>
         </center>
         <div id="first_column">
-            <table id="menu_table" border=1 cellspacing=0 cellpadding=5 align=center valign=top width="100%" color="#00FFCC"></table>
+            <table id="menu_table" border=1 cellspacing=0 cellpadding=15 align=center valign=top width="100%" bgcolor="#00FFCC"></table>
         </div>
         <div id="second_column">
             <p id="non_iOS" align=center>
-                <iframe name="main_display" id="main_display" width="96%" height="1280px" frameborder=0 type="application/pdf" allowfullscreen></iframe> <!-- Need "px" --> <!-- I don't know if should add type="application/pdf" -->
+                <iframe name="main_display" id="main_display" width="96%" height="800px" frameborder=0 type="application/pdf" allowfullscreen></iframe> <!-- Need "px" --> <!-- I don't know if should add type="application/pdf" -->
             </p>
             <font color="#444444" size=+2 face="Consolas">
                 <p id="iOS" align=center> <!-- Don't put <center> or <pre> inside <p></p> or else you cannot control whether it is displayed by the below script -->
@@ -65,28 +69,28 @@
                 }
                 else {
                     var arrPDFData = [], arrDriveLink_tmp = [], userAgent = navigator.userAgent || navigator.vendor || window.opera;
-                    const response = await octokit.request(("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF"), {
+                    const response_1 = await octokit.request(("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF"), {
                         owner: 'tonymayixuan',
                         repo: 'Introducing_Rigorous_Mathematics',
                         path: 'PDF'
                     });
-                    response.data.forEach(datum => {if (datum.name.substring(datum.name.lastIndexOf("."), datum.name.length) === ".pdf") {arrPDFData[arrPDFData.length] = [datum.name.substr(2, datum.name.length - 6), "https://tonymayixuan.github.io/Introducing_Rigorous_Mathematics/PDF/" + datum.name]; }});
+                    response_1.data.forEach(datum => {if (datum.name.substring(datum.name.lastIndexOf("."), datum.name.length) === ".pdf") {arrPDFData[arrPDFData.length] = [datum.name.substr(2, datum.name.length - 6), "https://tonymayixuan.github.io/Introducing_Rigorous_Mathematics/PDF/" + datum.name]; }});
                     arrPDFData.sort(function (a, b) {return b[0].localeCompare(a[0])}); // descending order; already ascending alphabetical order of its name when "response"
                     if (/android/i.test(userAgent)) { //TODO Better even take into account the resolution of the screen and put the website respectively
-                        const response = await octokit.request(("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF/Links_Google_Drive_PDF.txt"), {
+                        const response_2 = await octokit.request(("GET /repos/tonymayixuan/Introducing_Rigorous_Mathematics/contents/PDF/Links_Google_Drive_PDF.txt"), {
                             owner: 'tonymayixuan',
                             repo: 'Introducing_Rigorous_Mathematics',
                             path: 'PDF/Links_Google_Drive_PDF.txt'
                         });
-                        arrDriveLink_tmp = atob(response.data.content).split("\n");
+                        arrDriveLink_tmp = atob(response_2.data.content).split("\n");
                         //TODO If arrDriveLink_tmp.length <> arrPDFData.length + 1 then may throw error (last element of arrDriveLink_tmp is empty)
                         for (var i = 0; i < arrPDFData.length; i++) {arrPDFData[i][1] = "https://drive.google.com/file/d/" + arrDriveLink_tmp[arrDriveLink_tmp.length - 2 - i] + "/preview"; }
                     }
                     document.getElementById("non_iOS").style.display = "block";
                     document.getElementById("main_display").src = arrPDFData[0][1];
-                    document.getElementById("menu_table").innerHTML += "<tr><td height=\"75px\" align=center><font size=+2 face=\"Calibri\"><a href=\"tips.html\" target=\"main_display\">Tips</a></font></td></tr>"; // here target="main_display" is the name of the iframe, not id
+                    document.getElementById("menu_table").innerHTML += "<tr><td height=\"65px\" align=center><font size=+2 face=\"Calibri\"><a href=\"tips.html\" target=\"main_display\">Tips</a></font></td></tr>"; // here target="main_display" is the name of the iframe, not id
                     for (var i = 0; i < arrPDFData.length; i++) {
-                        document.getElementById("menu_table").innerHTML += "<tr><td height=\"45px\" align=center><font size=+1 face=\"Calibri\"><a href=\"" + arrPDFData[i][1] + "\" target=\"main_display\">" + arrPDFData[i][0] + "</a></font></td></tr>";
+                        document.getElementById("menu_table").innerHTML += "<tr><td height=\"35px\" align=center><font size=+1 face=\"Calibri\"><a href=\"" + arrPDFData[i][1] + "\" target=\"main_display\">" + arrPDFData[i][0] + "</a></font></td></tr>";
                     }
                 }
                 datetime_display(); // after loading the page (need to put inside this async function)
