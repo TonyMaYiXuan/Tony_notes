@@ -61,7 +61,7 @@
                 document.getElementById("iOS").style.display = "none";
             }
             import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
-            const octokit = new Octokit();
+            var octokit = new Octokit();
             async function showFile() {
                 var arrPDFFileName = [], arrDriveFileName = [], arrDriveFileName_tmp = [];
                 var userAgent = navigator.userAgent || navigator.vendor || window.opera; // carefully copy from https://stackoverflow.com/a/21742107
