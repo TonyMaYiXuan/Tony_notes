@@ -2,15 +2,15 @@
 <html>
     <head>
         <title>
-            Tony's Notes: Rigorous Mathematics
+            Tony's Notes: Introducing Rigorous Mathematics
         </title>
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <style>
-            #menu_div {
+            #column_menu {
                 width: 15%;
                 float: left;
             }
-            #display_div {
+            #column_display {
                 width: 80%;
                 float: right;
             }
@@ -19,9 +19,7 @@
     <body>
         <font face="Calibri" color=red>
             <p id="datetime" align=right>
-                <b>
-                    --- PAGE LOADING ---
-                </b>
+                <b>--- LOADING <b><sub>(takes a while on Android)</sub><b> ---</b>
             </p>
         </font>
         <center>
@@ -31,10 +29,10 @@
                 </font>
             </h1>
         </center>
-        <div id="menu_div">
+        <div id="column_menu">
             <table id="menu_table" border=1 cellspacing=0 cellpadding=16 align=center valign=top width="80%" bgcolor="#00FFCC"></table>
         </div>
-        <div id="display_div">
+        <div id="column_display">
             <p id="non_iOS" align=center>
                 <iframe name="main_display" id="main_display" width="96%" height="1280px" frameborder=0 type="application/pdf" allowfullscreen></iframe> <!-- Need "px" --> <!-- I don't know if should add type="application/pdf" -->
             </p>
