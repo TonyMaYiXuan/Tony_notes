@@ -10,14 +10,7 @@
         <font face="Calibri">
             <p id="datetime" align=right>Datetime</p>
         </font>
-        <script type="text/javascript">
-            function addLeadingZero(x) {
-                return ((x < 10)? ("0" + x): x);
-            }
-            var today = new Date();
-            document.getElementById("datetime").innerHTML = today.getFullYear() + "-" + addLeadingZero(today.getMonth() + 1) + "-" + addLeadingZero(today.getDate()) + " " + addLeadingZero(today.getHours()) + ":" + addLeadingZero(today.getMinutes()) + ":" + addLeadingZero(today.getSeconds());
-            document.getElementById("datetime").style.color = "#50F0A0"; // You need quotes here
-            document.getElementById("datetime").style.face = "Consolas";
+        <script type="text/javascript" src="datetime_display.js">
         </script>
         <center>
             <h1>
@@ -41,6 +34,6 @@
                 Sorry, iOS is currently not supported <sub>as I am too lazy to implement</sub>.
             </p>
         </font>
-        <script src="pdf_display.js"></script>
+        <script type="module" src="pdf_display.js"></script> <!-- remember "type=..." and we use "module" because there is import statement inside, see https://usefulangle.com/post/252/script-type-module -->
     </body>
 </html>
