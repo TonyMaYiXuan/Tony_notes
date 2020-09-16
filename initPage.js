@@ -8,10 +8,10 @@ async function initPage() {
         document.getElementById('menuTable').innerHTML = '<tr><td height=\'700px\' align=center><font size=+1 face=\'Consolas\'>iOS not<br>supported</font></td></tr>';
     } else {
         var octokit = new Octokit(); // it must not be 'const' here if there are multiple 'response's below (or else it may not display successfully on phone Chrome browser) 
-        const responseDataJSON = await octokit.request('GET /repos/tonymayixuan/Tony_notes/contents/Data/data_papers.json', {
+        const responseDataJSON = await octokit.request('GET /repos/tonymayixuan/Tony_notes/contents/DATA/DATA FOR PAPERS.json', {
             owner: 'tonymayixuan',
             repo: 'Tony_notes',
-            path: 'Data/data_papers.json'
+            path: 'DATA/DATA FOR PAPERS.json'
         });
         dataDict.papers = JSON.parse(atob(responseDataJSON.data.content)); // input a dictionary
         dataDict.currentPaper = {paperName: '', newest: '0000_00_00_00_00'}; // dictionary is better here, for function 'changePaper()'
@@ -20,7 +20,7 @@ async function initPage() {
             dataDict.papers[thisPaper]['File link'] = [];
             dataDict.papers[thisPaper]['File name'] = dataDict.papers[thisPaper]['File name'].reverse(); // it should be like call by reference
             for (var j = 0; j != cntVersion; j++) {
-                dataDict.papers[thisPaper]['File link'][j] = dataDict.isAndroid? ('https://drive.google.com/file/d/' + dataDict.papers[thisPaper]['Google Drive file link'][cntVersion - 1 - j] + '/preview'): ('PDF/' + dataDict.papers[thisPaper]['File name'][j] + '.pdf'); // believe no need absolute path, or else may simply put in another repository (so that I don't need to pull pdf to local)
+                dataDict.papers[thisPaper]['File link'][j] = dataDict.isAndroid? ('https://drive.google.com/file/d/' + dataDict.papers[thisPaper]['Google Drive file link'][cntVersion - 1 - j] + '/preview'): ('DATA/PDF/' + dataDict.papers[thisPaper]['File name'][j] + '.pdf'); // believe no need absolute path, or else may simply put in another repository (so that I don't need to pull pdf to local)
             }
             var tmpStr = dataDict.papers[thisPaper]['File name'][0];
             if (tmpStr.localeCompare(dataDict.currentPaper.newest) >= 0) {
