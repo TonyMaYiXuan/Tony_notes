@@ -8,11 +8,9 @@
         <link rel='icon' href='favicon.ico' type='image/x-icon'>
     </head>
     <body>
-        <font face='Calibri' color=red>
-            <p id='datetime' align=right>
-                <b>--- LOADING <b><sub>(it takes a while on Android)</sub><b> ---</b>
-            </p>
-        </font>
+        <div id='datetime' style='text-align: center; font-family: Calibri; color: red;'>
+            <b>--- LOADING <b><sub>(it takes a while on Android)</sub><b> ---</b>
+        </div>
         <div style='text-align: center; width: 94%; height: 300px; float: left;'>
             <h1>
                 Introducing Rigorous Mathematics <font color=#80E040><i><sub>(Tony's notes)</sub></i></font> <!-- in both night / day mode, #80E040 is calm -->
@@ -20,33 +18,29 @@
         </div>
         <div id='topRight' style='width: 3%; height: 300px; float: right;'>
             <table border=0 align=center valign=middle>
-                <tr height='28px'>
-                    <td>
-                        <button onmouseover='dayNightMode(0)'>
-                            <font size=-1 face='Consolas'>
+                <font size=-1 face='Consolas'>
+                    <tr height='28px'>
+                        <td align=center>
+                            <button onmouseover='dayNightMode(0)'>
                                 🌞
-                            </font>
-                        </button>
-                    </td>
-                </tr>
-                <tr height='28px'>
-                    <td>
-                        <button onmouseover='dayNightMode(1)'>
-                            <font size=-1 face='Consolas'>
-                                🌕
-                            </font>
-                        </button>
-                    </td>
-                </tr>
-                <tr height='28px'>
-                    <td>
-                        <button onclick='initPage()'> <!-- return home -->
-                            <font size=-1 face='Consolas'>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr height='28px'>
+                        <td align=center>
+                            <button onmouseover='dayNightMode(1)'>
+                                🌛
+                            </button>
+                        </td>
+                    </tr>
+                    <tr height='28px'>
+                        <td align=center>
+                            <button onclick='initPage()'> <!-- return home -->
                                 🏠
-                            </font>
-                        </button>
-                    </td>
-                </tr>
+                            </button>
+                        </td>
+                    </tr>
+                </font>
             </table>
         </div>
         <div id='menu'>
@@ -54,7 +48,7 @@
         </div>
         <div id='display'>
             <p id='non_iOS' align=center>
-                <iframe name='mainDisplay' id='mainDisplay' width='98%' height='1280px' frameborder=0 type='application/pdf' allowfullscreen></iframe> <!-- Need 'px' --> <!-- I don't know if should add type='application/pdf' -->
+                <iframe id='mainDisplay' width='98%' height='1280px' frameborder=0 type='application/pdf' allowfullscreen></iframe> <!-- Need 'px' --> <!-- I don't know if should add type='application/pdf'; name maybe required if use this as 'target' in href -->
             </p>
             <font color='#444444' size=+2 face='Consolas'>
                 <p id='iOS' align=center> <!-- Don't put <center> or <pre> inside <p></p> or else you cannot control whether it is displayed by the below script -->
@@ -66,63 +60,45 @@
         <script type='module'>
             import { Octokit } from 'https://cdn.skypack.dev/@octokit/rest';
             var dataDict = {
+                    externalJS: ['dateTimeDisplay.js', 'dayNightMode.js'
+                    ],
                     style: {
                         dnModeAttr: { // day night mode attributes
                             'day': {
-                                bodyBgColor: '#E8FFFF', bodyColor: '#101010', bodyFontFace: 'Calibri', h1Color: '#E080B0', h1FontFace: 'Calibri Light', menuBgColor: '#00FFCC', topMargin: 5, leftRightMargin: 6
+                                bodyBgImage: 'linear-gradient(to right, #E8FFFF, #FFFFE8)', bodyColor: '#101010', bodyFontFace: 'Calibri', h1Color: '#E080B0', h1FontFace: 'Calibri Light', menuBgColor: '#00FFCC', topMargin: 5, leftRightMargin: 6
                             },
                             'night': {
-                                bodyBgColor: '#100020', bodyColor: '#A0B0C0', bodyFontFace: 'Calibri', h1Color: '#AAEEFF', h1FontFace: 'Calibri Light', menuBgColor: '#0060A0', topMargin: 4, leftRightMargin: 5
+                                bodyBgImage: 'linear-gradient(to bottom right, #080040, #200030)', bodyColor: '#A0B0C0', bodyFontFace: 'Calibri', h1Color: '#AAEEFF', h1FontFace: 'Calibri Light', menuBgColor: '#0060A0', topMargin: 4, leftRightMargin: 5
                             }
                         }
                     },
-                    userAgent: navigator.userAgent || navigator.vendor || window.opera
+                    userAgent: navigator.userAgent || navigator.vendor || window.opera,
+                    isIOS: /iPad|iPhone|iPod/.test(dataDict.userAgent) && !window.MSStream,
+                    isAndroid: /android/i.test(this.userAgent)
                 };
-            function dayNightMode(flag) {
-                var dayNight = ['day', 'night']
-                document.getElementsByTagName('body').style.color = dataDict.style.dnModeAttr[dayNight[flag]].bodyColor;
-                document.getElementsByTagName('body').style.fontFamily = dataDict.style.dnModeAttr[dayNight[flag]].bodyFontFace;
-                document.getElementsByTagName('body').style.marginTop = dataDict.style.dnModeAttr[dayNight[flag]].topMargin.toString() + 'px';
-                document.getElementsByTagName('body').style.marginLeft = dataDict.style.dnModeAttr[dayNight[flag]].leftRightMargin.toString() + 'px';
-                document.getElementsByTagName('body').style.marginRight = dataDict.style.dnModeAttr[dayNight[flag]].leftRightMargin.toString() + 'px';
-                document.getElementsByTagName('h1').style.color = dataDict.style.dnModeAttr[dayNight[flag]].h1Color;
-                document.getElementsByTagName('h1').style.fontFamily = dataDict.style.dnModeAttr[dayNight[flag]].h1FontFace;
-                document.getElementById('menuTable').style.backgroundColor = dataDict.style.dnModeAttr[dayNight[flag]].menuBgColor;
-                window.onload = function() {
-                    if (window.location.search('#' + dayNight[flag] + 'Mode') == -1) {
-                        if (window.location.search('#' + dayNight[!flag] + 'Mode') !== -1) {
-                            window.location = window.location.replace('#' + dayNight[!flag] + 'Mode','');
-                        }
-                        window.location = window.location + '#' + dayNight[flag] + 'Mode';
-                        window.location.reload();  // 'location.reload();' reloads and reloads without stopping
-                    }
-                }
-            }
-            function addLeadingZero(n) {  // n is a string
-                return ((n < 10)? ('0' + n): n);
-            }
-            function datetimeDisplay() {
-                var today = new Date();
-                document.getElementById('datetime').innerHTML = today.getFullYear() + '-' + addLeadingZero(today.getMonth() + 1) + '-' + addLeadingZero(today.getDate()) + ' ' + addLeadingZero(today.getHours()) + ':' + addLeadingZero(today.getMinutes()) + ':' + addLeadingZero(today.getSeconds());
-                document.getElementById('datetime').style.color = '#50F0A0'; // NEED quotes here
-                document.getElementById('datetime').style.face = 'Consolas';
+            function getExternalJS() {
+                dataDict.externalJS.forEach(item => {
+                    var js = document.createElement('script');
+                    document.body.appendChild(js);
+                    js.src='item';
+                });
             }
             function hideAll() { // to show that the loading of page is not finished
                 document.getElementById('non_iOS').style.display = 'none';
                 document.getElementById('iOS').style.display = 'none';
             }
-            function changePaper(paper) {
-                dataDict.newest = {paperName: paper, newest: dataDict.papers[paper]['File name'][0]};
+            function changePaper(paper) { // not called if in iOS
+                dataDict.currentPaper = {paperName: paper, newest: dataDict.papers[paper]['File name'][0]};
+                document.getElementById('mainDisplay').src = dataDict.papers[dataDict.currentPaper.paperName]['File link'][0];
             }
             async function initPage() {
                 hideAll();
-                document.getElementsByTagName('body').style.width = '100%';
-                dayNightMode(1); // night mode - include reloading the page which you may reconsider
-                if (/iPad|iPhone|iPod/.test(dataDict.userAgent) && !window.MSStream) {
+                document.body.style.width = '100%';
+                dayNightMode(1);
+                if (dataDict.isIOS) {
                     document.getElementById('iOS').style.display = 'block';
                     document.getElementById('menuTable').innerHTML = '<tr><td height=\'700px\' align=center><font size=+1 face=\'Consolas\'>iOS not<br>supported</font></td></tr>';
                 } else {
-                    var isAndroid = /android/i.test(dataDict.userAgent);
                     var octokit = new Octokit(); // it must not be 'const' here if there are multiple 'response's below (or else it may not display successfully on phone Chrome browser) 
                     const responseDataJSON = await octokit.request('GET /repos/tonymayixuan/Tony_notes/contents/Data/data_papers.json', {
                         owner: 'tonymayixuan',
@@ -133,33 +109,27 @@
                     dataDict.currentPaper = {paperName: '', newest: '0000_00_00_00_00'}; // dictionary is better here, for function 'changePaper()'
                     for (var i = 0; i != Object.keys(dataDict.papers).length; i++) {
                         var thisPaper = Object.keys(dataDict.papers)[i], cntVersion = dataDict.papers[thisPaper]['File name'].length;
-                        dataDict.papers[thisPaper]['Google Drive file link'] = [];
                         dataDict.papers[thisPaper]['File link'] = [];
                         dataDict.papers[thisPaper]['File name'] = dataDict.papers[thisPaper]['File name'].reverse(); // it should be like call by reference
                         for (var j = 0; j != cntVersion; j++) {
-                            dataDict.papers[thisPaper]['File name'][j] = dataDict.papers[thisPaper]['File name'][j].substring(2, dataDict.papers[thisPaper]['File name'][j].lastIndexOf('.')); // assume all with '.pdf'
-                            dataDict.papers[thisPaper]['File link'][j] = 'PDF/V_' + dataDict.papers[thisPaper]['File name'][j] + '.pdf'; // believe no need absolute path, or else may simply put in another repository (so that I don't need to pull pdf to local)
-                            dataDict.papers[thisPaper]['Google Drive file link'][j] = 'https://drive.google.com/file/d/' + dataDict.papers[thisPaper]['Google Drive tmp'][cntVersion - 1 - j] + '/preview';
+                            dataDict.papers[thisPaper]['File link'][j] = dataDict.isAndroid? ('https://drive.google.com/file/d/' + dataDict.papers[thisPaper]['Google Drive file link'][cntVersion - 1 - j] + '/preview'): ('PDF/' + dataDict.papers[thisPaper]['File name'][j] + '.pdf'); // believe no need absolute path, or else may simply put in another repository (so that I don't need to pull pdf to local)
                         }
                         var tmpStr = dataDict.papers[thisPaper]['File name'][0];
                         if (tmpStr.localeCompare(dataDict.currentPaper.newest) >= 0) {
                             dataDict.currentPaper = {paperName: thisPaper, newest: tmpStr};
                         }
                     }
-                    document.getElementById('menu').style.cssFloat = isAndroid? 'inherit': 'left';
-                    document.getElementById('menu').style.width = isAndroid? '100%': '95%';
-                    document.getElementById('display').style.cssFloat = isAndroid? 'inherit': 'right';
-                    if (isAndroid) {
-                        dataDict.papers[dataDict.currentPaper.paperName]['File link'] = dataDict.papers[dataDict.currentPaper.paperName]['Google Drive file link']; // notice only changed current paper
-                    }
-                    document.getElementById('mainDisplay').src = dataDict.papers[dataDict.currentPaper.paperName]['File link'][0];
+                    document.getElementById('menu').style.cssFloat = dataDict.isAndroid? 'inherit': 'left';
+                    document.getElementById('menu').style.width = dataDict.isAndroid? '100%': '95%';
+                    document.getElementById('display').style.cssFloat = dataDict.isAndroid? 'inherit': 'right';
+                    changePaper(dataDict.currentPaper.paperName);
                     document.getElementById('non_iOS').style.display = 'block';
-                    document.getElementById('menuTable').innerHTML += '<tr><td height=\'30px\' align=center><font size=+1 face=\'Calibri\'><a href=\'tips.html\' target=\'mainDisplay\'><i>Tips</i></a></font></td></tr>'; // here target='mainDisplay' is the name of the iframe, not id
+                    document.getElementById('menuTable').innerHTML += '<tr><td height=\'30px\' align=center><font size=+1 face=\'Calibri\'><a href=\'tips.html\' target=\'mainDisplay\'><i>Tips</i></a></font></td></tr>';
                     for (var i = 0; i < dataDict.papers[dataDict.currentPaper.paperName]['File link'].length; i++) {
                         document.getElementById('menuTable').innerHTML += '<tr><td height=\'35px\' align=center><font size=+1 face=\'Calibri\'><a href=\'' + dataDict.papers[dataDict.currentPaper.paperName]['File link'][i] + '\' target=\'mainDisplay\'>' + dataDict.papers[dataDict.currentPaper.paperName]['File name'][i] + '</a></font></td></tr>';
                     }
                 }
-                datetimeDisplay(); // after the page is loaded (need to put inside this async function)
+                dateTimeDisplay(); // after the page is loaded(?) (need to put inside this async function)
             }
             initPage(); // be aware that the async function may not be EXECUTED BEFORE the following lines
         </script>
