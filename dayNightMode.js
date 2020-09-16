@@ -1,12 +1,19 @@
 function dayNightMode(flag) {
-    var dayNight = ['day', 'night']
-    document.body.style.backgroundImage = dataDict.style.dnModeAttr[dayNight[flag]].bodyBgImage;
-    document.body.style.color = dataDict.style.dnModeAttr[dayNight[flag]].bodyColor;
-    document.body.style.fontFamily = dataDict.style.dnModeAttr[dayNight[flag]].bodyFontFace;
-    document.body.style.marginTop = dataDict.style.dnModeAttr[dayNight[flag]].topMargin.toString() + 'px';
-    document.body.style.marginLeft = dataDict.style.dnModeAttr[dayNight[flag]].leftRightMargin.toString() + 'px';
-    document.body.style.marginRight = dataDict.style.dnModeAttr[dayNight[flag]].leftRightMargin.toString() + 'px';
-    document.getElementsByTagName('h1')[0].style.color = dataDict.style.dnModeAttr[dayNight[flag]].h1Color;
-    document.getElementsByTagName('h1')[0].style.fontFamily = dataDict.style.dnModeAttr[dayNight[flag]].h1FontFace;
-    document.getElementById('menuTable').style.backgroundColor = dataDict.style.dnModeAttr[dayNight[flag]].menuBgColor;
+    var dnModeAttr: { // day night mode attributes
+            0: {
+                bodyBgImage: 'linear-gradient(to right, #E8FFFF, #FFFFE8)', bodyColor: '#101010', bodyFontFace: 'Calibri', h1Color: '#E080B0', h1FontFace: 'Calibri Light', menuBgColor: '#00FFCC', topMargin: 5, leftRightMargin: 6
+            },
+            1: {
+                bodyBgImage: 'linear-gradient(to bottom right, #080040, #200030)', bodyColor: '#A0B0C0', bodyFontFace: 'Calibri', h1Color: '#AAEEFF', h1FontFace: 'Calibri Light', menuBgColor: '#0060A0', topMargin: 4, leftRightMargin: 5
+            }
+        };
+    document.body.style.backgroundImage = dnModeAttr[flag].bodyBgImage;
+    document.body.style.color = dnModeAttr[flag].bodyColor;
+    document.body.style.fontFamily = dnModeAttr[flag].bodyFontFace;
+    document.body.style.marginTop = dnModeAttr[flag].topMargin.toString() + 'px';
+    document.body.style.marginLeft = dnModeAttr[flag].leftRightMargin.toString() + 'px';
+    document.body.style.marginRight = dnModeAttr[flag].leftRightMargin.toString() + 'px';
+    document.getElementsByTagName('h1')[0].style.color = dnModeAttr[flag].h1Color;
+    document.getElementsByTagName('h1')[0].style.fontFamily = dnModeAttr[flag].h1FontFace;
+    document.getElementById('menuTable').style.backgroundColor = dnModeAttr[flag].menuBgColor;
 }
