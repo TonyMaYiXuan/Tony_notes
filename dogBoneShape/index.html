@@ -5,7 +5,7 @@
         <link rel='stylesheet' href='style.css'>
         <link rel='icon' href='../DATA/icon/favicon.ico' type='image/x-icon'>
         <title>
-            Tony's notes: Dog-bone shape
+            Tony's notes: Dog bone shape
         </title>
     </head>
     <body>
@@ -14,7 +14,10 @@
             <iframe frameborder=0 noresize=noresize></iframe>
         </div>
         <div id='dogBoneShapeDisplay'>
-            <iframe height=width name='dogBoneShape_main' src="https://www.desmos.com/calculator/uxrro8wr7a?embed" style="border: 1px solid #ccc" frameborder=0></iframe> <!-- copied from the share option of the Desmos graph -->
+            <iframe width='100%' id='dogBoneShapeMain' src='https://www.desmos.com/calculator/txi7sbsas8?embed' frameborder=0></iframe> <!-- from the share option of the Desmos graph -->
         </div>
+        <script type='text/javascript'>
+            document.getElementById('dogBoneShapeMain').height = document.getElementById('dogBoneShapeMain').clientWidth;
+        </script>
     </body>
 </html>
