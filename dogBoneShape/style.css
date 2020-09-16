@@ -1,0 +1,8 @@
+#dogBoneShape_menu {
+    width: 30%;
+    float: left;
+}
+#dogBoneShape_display {
+    width: 70%;
+    float: right;
+}
