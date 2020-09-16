@@ -8,49 +8,23 @@
         <link rel='icon' href='favicon.ico' type='image/x-icon'>
     </head>
     <body>
-        <div id='datetime' style='text-align: center; font-family: Calibri; color: red;'>
+        <div id='dateTime' style='text-align: center; font-family: Calibri; color: red;'>
             <b>--- LOADING <b><sub>(it takes a while on Android)</sub><b> ---</b>
         </div>
-        <div style='text-align: center; width: 94%; height: 300px; float: left;'>
-            <h1>
-                Introducing Rigorous Mathematics <font color=#80E040><i><sub>(Tony's notes)</sub></i></font> <!-- in both night / day mode, #80E040 is calm -->
-            </h1>
+        <div id='title' style='text-align: center; width: 94%; height: 300px; float: left;'>
         </div>
         <div id='topRight' style='width: 3%; height: 300px; float: right;'>
-            <table border=0 align=center valign=middle>
-                <font size=-1 face='Consolas'>
-                    <tr height='28px'>
-                        <td align=center>
-                            <button onmouseover='dayNightMode(0)'>
-                                🌞
-                            </button>
-                        </td>
-                    </tr>
-                    <tr height='28px'>
-                        <td align=center>
-                            <button onmouseover='dayNightMode(1)'>
-                                🌛
-                            </button>
-                        </td>
-                    </tr>
-                    <tr height='28px'>
-                        <td align=center>
-                            <button onclick='initPage()'> <!-- return home -->
-                                🏠
-                            </button>
-                        </td>
-                    </tr>
-                </font>
-            </table>
+            <iframe src='topRight.html' frameborder=0></iframe>
         </div>
         <div id='menu'>
             <table id='menuTable' border=1 cellspacing=0 cellpadding=16 align=center valign=top width='90%'></table>
         </div>
+        <iframe id='homePage' border=0 noresize=noresize></iframe>
         <div id='display'>
             <p id='non_iOS' align=center>
                 <iframe id='mainDisplay' width='98%' height='1280px' frameborder=0 type='application/pdf' allowfullscreen></iframe> <!-- Need 'px' --> <!-- I don't know if should add type='application/pdf'; name maybe required if use this as 'target' in href -->
             </p>
-            <font color='#444444' size=+2 face='Consolas'>
+            <font color='#666666' size=+2 face='Consolas'>
                 <p id='iOS' align=center> <!-- Don't put <center> or <pre> inside <p></p> or else you cannot control whether it is displayed by the below script -->
                     Sorry, iOS is currently <b>not</b> supported <sub>because I am too lazy to implement</sub>.
                 </p>
@@ -60,18 +34,8 @@
         <script type='module'>
             import { Octokit } from 'https://cdn.skypack.dev/@octokit/rest';
             var dataDict = {
-                    externalJS: ['dateTimeDisplay.js', 'dayNightMode.js'
-                    ],
-                    style: {
-                        dnModeAttr: { // day night mode attributes
-                            'day': {
-                                bodyBgImage: 'linear-gradient(to right, #E8FFFF, #FFFFE8)', bodyColor: '#101010', bodyFontFace: 'Calibri', h1Color: '#E080B0', h1FontFace: 'Calibri Light', menuBgColor: '#00FFCC', topMargin: 5, leftRightMargin: 6
-                            },
-                            'night': {
-                                bodyBgImage: 'linear-gradient(to bottom right, #080040, #200030)', bodyColor: '#A0B0C0', bodyFontFace: 'Calibri', h1Color: '#AAEEFF', h1FontFace: 'Calibri Light', menuBgColor: '#0060A0', topMargin: 4, leftRightMargin: 5
-                            }
-                        }
-                    },
+                    dayNight: 1,
+                    externalJS: ['dateTimeDisplay.js', 'dayNightMode.js', 'changePaper.js', 'homePage.js', 'initPage.js'],
                     userAgent: navigator.userAgent || navigator.vendor || window.opera,
                     isIOS: /iPad|iPhone|iPod/.test(dataDict.userAgent) && !window.MSStream,
                     isAndroid: /android/i.test(this.userAgent)
@@ -84,52 +48,8 @@
                 });
             }
             function hideAll() { // to show that the loading of page is not finished
-                document.getElementById('non_iOS').style.display = 'none';
-                document.getElementById('iOS').style.display = 'none';
-            }
-            function changePaper(paper) { // not called if in iOS
-                dataDict.currentPaper = {paperName: paper, newest: dataDict.papers[paper]['File name'][0]};
-                document.getElementById('mainDisplay').src = dataDict.papers[dataDict.currentPaper.paperName]['File link'][0];
-            }
-            async function initPage() {
-                hideAll();
-                document.body.style.width = '100%';
-                dayNightMode(1);
-                if (dataDict.isIOS) {
-                    document.getElementById('iOS').style.display = 'block';
-                    document.getElementById('menuTable').innerHTML = '<tr><td height=\'700px\' align=center><font size=+1 face=\'Consolas\'>iOS not<br>supported</font></td></tr>';
-                } else {
-                    var octokit = new Octokit(); // it must not be 'const' here if there are multiple 'response's below (or else it may not display successfully on phone Chrome browser) 
-                    const responseDataJSON = await octokit.request('GET /repos/tonymayixuan/Tony_notes/contents/Data/data_papers.json', {
-                        owner: 'tonymayixuan',
-                        repo: 'Tony_notes',
-                        path: 'Data/data_papers.json'
-                    });
-                    dataDict.papers = JSON.parse(atob(responseDataJSON.data.content)); // input a dictionary
-                    dataDict.currentPaper = {paperName: '', newest: '0000_00_00_00_00'}; // dictionary is better here, for function 'changePaper()'
-                    for (var i = 0; i != Object.keys(dataDict.papers).length; i++) {
-                        var thisPaper = Object.keys(dataDict.papers)[i], cntVersion = dataDict.papers[thisPaper]['File name'].length;
-                        dataDict.papers[thisPaper]['File link'] = [];
-                        dataDict.papers[thisPaper]['File name'] = dataDict.papers[thisPaper]['File name'].reverse(); // it should be like call by reference
-                        for (var j = 0; j != cntVersion; j++) {
-                            dataDict.papers[thisPaper]['File link'][j] = dataDict.isAndroid? ('https://drive.google.com/file/d/' + dataDict.papers[thisPaper]['Google Drive file link'][cntVersion - 1 - j] + '/preview'): ('PDF/' + dataDict.papers[thisPaper]['File name'][j] + '.pdf'); // believe no need absolute path, or else may simply put in another repository (so that I don't need to pull pdf to local)
-                        }
-                        var tmpStr = dataDict.papers[thisPaper]['File name'][0];
-                        if (tmpStr.localeCompare(dataDict.currentPaper.newest) >= 0) {
-                            dataDict.currentPaper = {paperName: thisPaper, newest: tmpStr};
-                        }
-                    }
-                    document.getElementById('menu').style.cssFloat = dataDict.isAndroid? 'inherit': 'left';
-                    document.getElementById('menu').style.width = dataDict.isAndroid? '100%': '95%';
-                    document.getElementById('display').style.cssFloat = dataDict.isAndroid? 'inherit': 'right';
-                    changePaper(dataDict.currentPaper.paperName);
-                    document.getElementById('non_iOS').style.display = 'block';
-                    document.getElementById('menuTable').innerHTML += '<tr><td height=\'30px\' align=center><font size=+1 face=\'Calibri\'><a href=\'tips.html\' target=\'mainDisplay\'><i>Tips</i></a></font></td></tr>';
-                    for (var i = 0; i < dataDict.papers[dataDict.currentPaper.paperName]['File link'].length; i++) {
-                        document.getElementById('menuTable').innerHTML += '<tr><td height=\'35px\' align=center><font size=+1 face=\'Calibri\'><a href=\'' + dataDict.papers[dataDict.currentPaper.paperName]['File link'][i] + '\' target=\'mainDisplay\'>' + dataDict.papers[dataDict.currentPaper.paperName]['File name'][i] + '</a></font></td></tr>';
-                    }
-                }
-                dateTimeDisplay(); // after the page is loaded(?) (need to put inside this async function)
+                document.getElementById('display').style.display = 'none';
+                document.getElementById('homePage').style.display = 'none';
             }
             initPage(); // be aware that the async function may not be EXECUTED BEFORE the following lines
         </script>
