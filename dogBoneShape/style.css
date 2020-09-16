@@ -1,3 +1,9 @@
+body {
+    padding: 40px;
+    font-family: Calibri;
+    font-size: 16px;
+    text-align: center;
+}
 #dogBoneShapeMenu {
     width: 30%;
     float: left;
