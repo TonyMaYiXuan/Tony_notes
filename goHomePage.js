@@ -1,4 +1,4 @@
-function homePage(flag) { //1 for return home and 0 for leaving home page
+function goHomePage(flag) { //1 for return home and 0 for leaving home page
     hideAll();
     if (flag) {
         document.getElementById('title').innerHTML = '<h1>Tony\'s note</h1>';
