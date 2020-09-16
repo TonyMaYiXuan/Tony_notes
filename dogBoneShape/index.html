@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset='UTF-8'>
+        <meta charset='UTF-8' name='viewport' content='width=device-width, initial-scale=1'>
         <title>
             Tony's notes: Dog-bone shape
         </title>
+        <link rel='stylesheet' href='style.css'>
+        <link rel='icon' href='../favicon.ico' type='image/x-icon'>
     </head>
     <body>
         <script type='text/javascript' src='setBackground.js'></script>
-        <table border=0 align=center> <!-- This table to set the dimension of the whole page -->
-            <tr> 
-                <td height=1005 width=1005 bgcolor=#74E73B> <!-- height and width should not be in <table> -->
-                    <table border=0>
-                        <tr>
-                            <td>
-                                <iframe height=1005 width=1005 src="main_frame.html" style="border:none;" scrolling=no noresize=noresize>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
+        <div id='dogBoneShapeMenu'>
+            <iframe src="menu.html" frameborder=0 noresize=noresize></iframe>
+        </div>
+        <div id='dogBoneShapeDisplay'>
+            <iframe name='dogBoneShape_main' src="https://www.desmos.com/calculator/uxrro8wr7a?embed" style="border: 1px solid #ccc" frameborder=0></iframe> <!-- copied from the share option of the Desmos graph -->
     </body>
 </html>
