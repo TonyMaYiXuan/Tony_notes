@@ -14,10 +14,10 @@
             <iframe frameborder=0 noresize=noresize></iframe>
         </div>
         <div id='dogBoneShapeDisplay'>
-            <iframe width='100%' id='dogBoneShapeMain' src='https://www.desmos.com/calculator/txi7sbsas8?embed' frameborder=0></iframe> <!-- from the share option of the Desmos graph -->
+            <iframe width='100%' name='dogBoneShapeMain' src='https://www.desmos.com/calculator/txi7sbsas8?embed' frameborder=0></iframe> <!-- from the share option of the Desmos graph -->
         </div>
         <script type='text/javascript'>
-            document.getElementById('dogBoneShapeMain').height = document.getElementById('dogBoneShapeMain').clientWidth;
+            document.getElementsByName('dogBoneShapeMain')[0].height = document.getElementsByName('dogBoneShapeMain')[0].clientWidth;
         </script>
     </body>
 </html>
