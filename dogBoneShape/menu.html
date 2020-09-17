@@ -2,6 +2,13 @@
 <html>
     <head>
         <link rel='stylesheet' href='style.css'>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+        <script type="text/javascript">
+            jQuery(function($){
+                $('#indexMain').load('index.html #dogBoneShapeMain');
+                $('#indexMenu').load('index.html #dogBoneShapeMain');
+            });
+        </script>
     </head>
     <body>
         <table border=1 cellspacing=0 cellpadding=16 align=center valign=top>
