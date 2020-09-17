@@ -5,29 +5,29 @@
     </head>
     <body>
         <table border=1 cellspacing=0 cellpadding=0 align=center valign=middle>
-            <tr height='270px'>
-                <th width='270px'>
-                    <iframe src='https://www.desmos.com/calculator/csr5ywmu3r?embed' width='270px' height='270px' frameborder=0></iframe> <!-- seems that href to the Desmos website putting here is no use -->
+            <tr align=center valign=middle>
+                <th>
+                    <iframe name='graphImagesFrame1' src='https://www.desmos.com/calculator/csr5ywmu3r?embed' width='270px' height='270px' frameborder=0></iframe> <!-- seems that href to the Desmos website putting here is no use -->
                 </th>
-                <th width='270px'>
-                    <iframe src='https://www.desmos.com/calculator/eerebshpnm?embed' width='270px' height='270px' frameborder=0></iframe>
+                <th>
+                    <iframe name='graphImagesFrame2' src='https://www.desmos.com/calculator/eerebshpnm?embed' width='270px' height='270px' frameborder=0></iframe>
                 </th>
             </tr>
-            <tr height=75 align=center valign=middle>
+            <tr align=center valign=middle>
                 <th>
-                    <a href='https://www.desmos.com/calculator/csr5ywmu3r' target='dogBoneShapeMain'>
+                    <a href='https://www.desmos.com/calculator/csr5ywmu3r' target='dogBoneShapeMainDisplay'>
                         <img src='../DATA/image/x_x=y_y.png' alt='x_x=y_y' height='61px' width='270px'> <!-- always specify both width and height to maintain aspect ratio -->
                     </a>
                 </th>
                 <th>
-                    <a href='https://www.desmos.com/calculator/eerebshpnm' target='dogBoneShapeMain'>
+                    <a href='https://www.desmos.com/calculator/eerebshpnm' target='dogBoneShapeMainDisplay'>
                         <img src='../DATA/image/x_x=y_y{xneqy}.png' alt='x_x=y_y{x\\neq y}' height='39px' width='270px'>
                     </a>
                 </th>
             </tr>
-            <tr height=270>
+            <tr align=center valign=middle>
                 <th>
-                    <iframe src='https://www.desmos.com/calculator/uxrro8wr7a?embed' width='270px' height='270px' frameborder=0></iframe>
+                    <iframe name='graphImagesFrame3' src='https://www.desmos.com/calculator/uxrro8wr7a?embed' width='270px' height='270px' frameborder=0></iframe>
                 </th>
                 <th align=center>
                     <font size=8 color=yellow>
@@ -35,10 +35,10 @@
                     </font>
                 </th>
             </tr>
-            <tr height=65 align=center>
+            <tr align=center valign=middle>
                 <td>
                     <font size=+1>
-                        See my <a href='reference.html'><i>MSE</i> post</a><br> or <a href='https://www.desmos.com/calculator/uxrro8wr7a' target='dogBoneShapeMain'>this <i>Desmos</i> graph</a>.
+                        See my <a href='reference.html'><i>MSE</i> post</a><br> or <a href='https://www.desmos.com/calculator/uxrro8wr7a' target='dogBoneShapeMainDisplay'>this <i>Desmos</i> graph</a>.
                     </font>
                 </td>
                 <td>
@@ -48,5 +48,6 @@
                 </td>
             </tr>
         </table>
+        <script type='text/javascript' src='setGraphImagesDimensions.js'></script>
     </body>
 </html>
