@@ -1,6 +1,7 @@
 {
   "introducing_rigorous_mathematics": {
     "Name": "Introducing Rigorous Mathematics",
+    "Favourite": "Yes",
     "Google Drive folder link": "1mYRfW4-O1HD5igALGu9RYu9HUL_312is",
     "File name": [
       "2020_08_27_22_01", "2020_09_10_23_25"
@@ -12,6 +13,7 @@
   },
   "on_behavior_of_cauchy_products": {
     "Name": "On behavior of Cauchy products",
+    "Favourite": "Yes",
     "Google Drive folder link": "1EkY4HRNVgZ9TyBuTi35bd86MI-IR_Olu",
     "File name": [
       "2018_08_22_14_58"
@@ -21,4 +23,15 @@
     ],
     "Description HTML": "Study <i>Cauchy products</i> of summation, building knowledge from the theory of (discrete) (maybe infinite) summation."
   }
+  "uniform_charge_density_plane_forms_uniform_electric_field": {
+    "Name": "Uniform charge density plane forms uniform electric field",
+    "Favourite": "No",
+    "Google Drive folder link": "1zGuCE4-_h5F7kwzR-AmwNZ1bt7BOC8Vj",
+    "File name": [
+      "2020_09_18_01_10"
+    ],
+    "Google Drive file link": [
+      "1XXU9gy51OZ5KYi6fX6FvJyHb404ts-Q0"
+    ],
+    "Description HTML": "An interesting <i>Physics</i> phenomenon with my little explanation. Idea by my teacher."
 }
