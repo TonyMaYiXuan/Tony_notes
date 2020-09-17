@@ -5,10 +5,10 @@ body {
     text-align: center;
 }
 #dogBoneShapeMenu {
-    width: 30%;
+    width: 13%;
     float: left;
 }
 #dogBoneShapeDisplay {
-    width: 70%;
+    width: 85%;
     float: right;
 }
