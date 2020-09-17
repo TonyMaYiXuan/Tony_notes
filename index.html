@@ -98,9 +98,11 @@
             } else {
                 document.body.style.width = '98%'; // avoid '100%' here
                 document.getElementById('menu').style.cssFloat = window.top.dataDict.isAndroid? 'inherit': 'left';
-                document.getElementById('menu').style.width = window.top.dataDict.isAndroid? '100%': '96%';
-                document.getElementById('menuTable').innerHTML += '<tr><td height=\'30px\' align=center><font size=+1 face=\'Calibri\'><a href=\'tips.html\' target=\'mainDisplay\'><i>Tips</i></a></font></td></tr>';
+                document.getElementById('menu').style.width = window.top.dataDict.isAndroid? '98%': '14%';
+                var tmpString = '<font size=+1><a href=\'tips.html\' target=\'mainDisplay\'><i>Tips</i></a></font>';
+                document.getElementById('menuTable').innerHTML += '<tr><td height=\'30px\' align=center>' + tmpString + '</td></tr>'; //TODO Finish coding here
                 document.getElementById('main').style.cssFloat = window.top.dataDict.isAndroid? 'inherit': 'right';
+                document.getElementById('main').style.width = window.top.dataDict.isAndroid? '98%': '83%';
                 dateTimeDisplay();
             }
         </script>
