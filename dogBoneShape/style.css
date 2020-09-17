@@ -1,5 +1,5 @@
 body {
-    padding: 15px;
+    padding: 12px;
     font-family: Calibri;
     font-size: 16px;
     text-align: center;
@@ -9,6 +9,6 @@ body {
     float: left;
 }
 #dogBoneShapeDisplay {
-    width: 85%;
+    width: 84%;
     float: right;
 }
