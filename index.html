@@ -8,29 +8,101 @@
         </title>
     </head>
     <body>
-        <div id='dateTime' style='text-align: center; font-family: Calibri; color: red;'>
-            <b>--- LOADING <b><sub>(it takes a while on Android)</sub><b> ---</b>
+        <div id='dateTime' style='text-align: right; font-family: Calibri; color: red;'>
+            <b>--- LOADING </b><sub>(it takes a while)</sub><b> ---</b>
         </div>
-        <div id='title' style='text-align: center; width: 94%; height: 300px; float: left;'>
+        <div id='title' style='text-align: center; width: 98%; height: 100px; float: left;'>
+            <h1></h1>
         </div>
-        <div id='topRight' style='width: 3%; height: 300px; float: right;'>
-            <iframe src='topRight.html' frameborder=0></iframe>
+        <div id='topRight' style='width: 2%; height: 300px; float: right;'>
+            <font size=+1 face='Consolas'>
+                <table border=0 align=center valign=middle>
+                    <tr height='28px'>
+                        <td align=center>
+                            <a onmouseover='dayNightMode(0); window.top.dataDict.dayNight = 0;'>
+                                ☀️
+                            </a>
+                        </td>
+                    </tr>
+                    <tr height='28px'>
+                        <td align=center>
+                            <a onmouseover='dayNightMode(1); window.top.dataDict.dayNight = 1;'>
+                                🌙
+                            </a>
+                        </td>
+                    </tr>
+                    <tr height='28px'>
+                        <td align=center>
+                            <button id='buttonReturnHome' onclick='goHomePage(1);'> <!-- return home -->
+                                🏠
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </font>
         </div>
         <div id='menu'>
             <table id='menuTable' border=1 cellspacing=0 cellpadding=16 align=center valign=top width='90%'></table>
         </div>
-        <iframe id='homePage' border=0 noresize=noresize></iframe>
-        <div id='display'>
-            <p id='non_iOS' align=center>
-                <iframe id='mainDisplay' width='98%' height='1280px' frameborder=0 type='application/pdf' allowfullscreen></iframe> <!-- Need 'px' --> <!-- I don't know if should add type='application/pdf'; name maybe required if use this as 'target' in href -->
-            </p>
-            <font color='#666666' size=+2 face='Consolas'>
-                <p id='iOS' align=center> <!-- Don't put <center> or <pre> inside <p></p> or else you cannot control whether it is displayed by the below script -->
-                    Sorry, iOS is currently <b>not</b> supported <sub>because I am too lazy to implement</sub>.
-                </p>
-            </font>
+        <div id='main'>
+            <iframe name='mainDisplay' id='mainDisplay' width='98%' frameborder=0 noresize=noresize allowfullscreen></iframe> <!-- Need 'px' --> <!-- I don't know if should add type='application/pdf'; name maybe required if use this as 'target' in href -->
         </div>
-        <!-- The script must be put below the definition of the above paragraph elements, and here we must have type='module'' -->
-        <script type='module' src='main.js'></script>
+        <!-- The scripts must be put below the definition of the above <p> / <div> but I do not know if order of function declaration matters -->
+        <script type='text/javascript' src='initDataDict.js'></script>
+        <script type='text/javascript' src='dateTimeDisplay.js'></script>
+        <script type='text/javascript' src='dayNightMode.js'></script>
+        <script type='text/javascript' src='changePaper.js'></script>
+        <script type='text/javascript' src='goHomePage.js'></script>
+        <script type='module'>
+            import { Octokit } from 'https://cdn.skypack.dev/pin/@octokit/rest@v18.0.6-HGqecU0WbbzwJY5lc7Ue/min/@octokit/rest.js'; // put in first line, at least not inside a function
+            window.top.dataDict.readDataJSON = async function() {
+                const octokit = new Octokit(); // it must not be 'const' here if there are multiple 'response's below (or else it may not display successfully on phone Chrome browser) 
+                const responseDataJSON = await octokit.request('GET /repos/tonymayixuan/Tony_notes/contents/DATA/DATA_FOR_PAPERS.json', {
+                    owner: 'tonymayixuan',
+                    repo: 'Tony_notes',
+                    path: 'DATA/DATA_FOR_PAPERS.json'
+                });
+                window.top.dataDict.papers = JSON.parse(atob(responseDataJSON.data.content));
+                window.top.dataDict.currentPaper = {paperName: '', newest: '0000_00_00_00_00'}; // dictionary is better here, for function 'changePaper()'
+                for (var i = 0; i != Object.keys(window.top.dataDict.papers).length; i++) {
+                    var thisPaper = Object.keys(window.top.dataDict.papers)[i], cntVersion = window.top.dataDict.papers[thisPaper]['File name'].length;
+                    window.top.dataDict.papers[thisPaper]['File link'] = [];
+                    window.top.dataDict.papers[thisPaper]['File name'] = window.top.dataDict.papers[thisPaper]['File name'].reverse(); // it should be like call by reference
+                    for (var j = 0; j != cntVersion; j++) {
+                        window.top.dataDict.papers[thisPaper]['File link'][j] = window.top.dataDict.isAndroid? ('https://drive.google.com/file/d/' + window.top.dataDict.papers[thisPaper]['Google Drive file link'][cntVersion - 1 - j] + '/preview'): ('DATA/PDF/' + window.top.dataDict.papers[thisPaper]['File name'][j] + '.pdf'); // believe no need absolute path, or else may simply put in another repository (so that I don't need to pull pdf to local)
+                    }
+                    var tmpStr = window.top.dataDict.papers[thisPaper]['File name'][0];
+                    if (tmpStr.localeCompare(window.top.dataDict.currentPaper.newest) >= 0) {
+                        window.top.dataDict.currentPaper = {paperName: thisPaper, newest: tmpStr};
+                    }
+                }
+                changePaper(window.top.dataDict.currentPaper.paperName);
+                for (var i = 0; i < window.top.dataDict.papers[window.top.dataDict.currentPaper.paperName]['File link'].length; i++) {
+                    document.getElementById('menuTable').innerHTML += '<tr><td height=\'35px\' align=center><font size=+1 face=\'Calibri\'><a href=\'' + window.top.dataDict.papers[window.top.dataDict.currentPaper.paperName]['File link'][i] + '\' target=\'mainDisplay\'>' + window.top.dataDict.papers[window.top.dataDict.currentPaper.paperName]['File name'][i] + '</a></font></td></tr>';
+                }
+                hideShow(1);
+            }
+            window.top.dataDict.readDataJSON(); // execution not necessarily finish before the execution of below code begins; I give up trying to put this function call elsewhere
+        </script>
+        <script type='text/javascript'>
+            function hideShow(par) { // hide before page is loaded
+                var divList = (par == 1 && window.top.dataDict.isIOS? ['dateTime', 'title', 'main']: ['dateTime', 'title', 'topRight', 'menu', 'main']), tmp = par? 'block': 'none';
+                divList.forEach((divItem) => {document.getElementById(divItem).style.display = tmp; })
+            }
+            hideShow(0);
+            dayNightMode(1);
+            if (window.top.dataDict.isIOS) {
+                document.getElementById('mainDisplay').height = '300px';
+                document.getElementById('mainDisplay').src = 'mainDisplayIOS.html';
+                hideShow(1);
+            } else {
+                document.body.style.width = '98%'; // avoid '100%' here
+                document.getElementById('menu').style.cssFloat = window.top.dataDict.isAndroid? 'inherit': 'left';
+                document.getElementById('menu').style.width = window.top.dataDict.isAndroid? '100%': '96%';
+                document.getElementById('menuTable').innerHTML += '<tr><td height=\'30px\' align=center><font size=+1 face=\'Calibri\'><a href=\'tips.html\' target=\'mainDisplay\'><i>Tips</i></a></font></td></tr>';
+                document.getElementById('main').style.cssFloat = window.top.dataDict.isAndroid? 'inherit': 'right';
+                dateTimeDisplay();
+            }
+        </script>
     </body>
 </html>

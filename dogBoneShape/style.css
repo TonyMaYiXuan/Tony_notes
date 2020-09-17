@@ -1,14 +1,17 @@
 body {
-    padding: 12px;
     font-family: Calibri;
     font-size: 16px;
     text-align: center;
 }
 #dogBoneShapeMenu {
-    width: 13%;
+    width: 16%;
     float: left;
 }
-#dogBoneShapeMain {
-    width: 84%;
+#dogBoneShapeMain_ {
+    width: 83%;
     float: right;
+}
+#dogBoneShapeMain {
+    width: 98%;
+    float: left;
 }

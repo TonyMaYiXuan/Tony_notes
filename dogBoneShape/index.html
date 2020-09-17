@@ -9,14 +9,53 @@
         </title>
     </head>
     <body>
-        <script type='text/javascript' src='main.js'></script>
-        <script type='text/javascript' src='setBackground.js'></script>
         <div id='dogBoneShapeMenu'>
-            <iframe width='100%' name='dogBoneShapeMenuFrame' src='menu.html' frameborder=0 noresize=noresize></iframe>
+            <table border=1 cellspacing=0 cellpadding=16 align=center valign=top>
+                <tr>
+                    <th>
+                        <a href='description.html' target='dogBoneShapeMainDisplay'>
+                            <font size=+1>
+                                Description
+                            </font>
+                        </a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <a href='graphImages.html' target='dogBoneShapeMainDisplay'>
+                            <font size=+2>
+                                Image
+                            </font>
+                        </a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <a href='https://www.desmos.com/calculator/zmp5vvet1g' target='dogBoneShapeMainDisplay'>
+                            <font size=+1>
+                                <b><i>Desmos</i> graph</b>
+                            </font>
+                        </a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <a href='reference.html' target='dogBoneShapeMainDisplay'>
+                            <font size=+1>
+                                Reference
+                            </font>
+                        </a>
+                    </th>
+                </tr>
+            </table>
         </div>
-        <div id='dogBoneShapeMain'>
-            <iframe width='100%' name='dogBoneShapeMainDisplay' src='https://www.desmos.com/calculator/txi7sbsas8?embed' frameborder=0></iframe> <!-- from the share option of the Desmos graph -->
+        <div id='dogBoneShapeMain_'>
+            <div id='dogBoneShapeMain'>
+                <iframe width='100%' name='dogBoneShapeMainDisplay' src='https://www.desmos.com/calculator/txi7sbsas8?embed' frameborder=0></iframe> <!-- from the share option of the Desmos graph -->
+            </div>
         </div>
-        <script type='text/javascript' src='setDimensions.js></script>
+        <script type='text/javascript' src='../initDataDict.js'></script> <!-- dogBoneShape opened as website on its own -->
+        <script type='text/javascript' src='setBackground.js'></script>
+        <script type='text/javascript' src='setDimensions.js'></script>
     </body>
 </html>

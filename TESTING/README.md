@@ -1,0 +1,2 @@
+- I think I better honestly 'import' javascript files one by one by the '<script></script>' tags.
+- Delete this after commited to GitHub.

@@ -1,5 +1,5 @@
 function dayNightMode(flag) {
-    var dnModeAttr: { // day night mode attributes
+    var dnModeAttr = { // day night mode attributes
             0: {
                 bodyBgImage: 'linear-gradient(to right, #E8FFFF, #FFFFE8)', bodyColor: '#101010', bodyFontFace: 'Calibri', h1Color: '#E080B0', h1FontFace: 'Calibri Light', menuBgColor: '#00FFCC', topMargin: 5, leftRightMargin: 6
             },
