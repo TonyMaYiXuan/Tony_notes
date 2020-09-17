@@ -7,6 +7,7 @@ function getExternalJS() {
         js.src='item';
     });
 }
+getExternalJs();
 function hideAll() { // to show that the loading of page is not finished
     document.getElementById('display').style.display = 'none';
     document.getElementById('homePage').style.display = 'none';
