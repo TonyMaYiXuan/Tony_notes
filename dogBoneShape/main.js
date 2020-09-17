@@ -3,6 +3,6 @@ if (typeof dataDict == 'undefined') { // dogBoneShape opened as website on its o
     externalJS.forEach(item => {
         var js = document.createElement('script');
         document.body.appendChild(js);
-        js.src='item';
+        js.src = item;
     });
 }
