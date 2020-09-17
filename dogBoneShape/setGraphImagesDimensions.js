@@ -1,4 +1,4 @@
-var tmp = document.getElementsByName('dogBoneShapeMain')[0].clientWidth;
+var tmp = document.getElementById('dogBoneShapeMain').clientWidth;
 for (var i = 1; i != 4; i++) {
     document.getElementsByName('graphImagesFrame' + i.toString())[0].offsetWidth = tmp / 3;
     document.getElementsByName('graphImagesFrame' + i.toString())[0].offsetHeight = tmp / 3;
