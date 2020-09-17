@@ -1,2 +1,0 @@
-function hi() {
-alert('hi');}
