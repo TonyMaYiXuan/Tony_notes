@@ -31,27 +31,6 @@
             </font>
         </div>
         <!-- The script must be put below the definition of the above paragraph elements, and here we must have type='module'' -->
-        <script type='module'>
-            import { Octokit } from 'https://cdn.skypack.dev/@octokit/rest';
-            var dataDict = {
-                    dayNight: 1,
-                    externalJS: ['dateTimeDisplay.js', 'dayNightMode.js', 'changePaper.js', 'goHomePage.js', 'initPage.js'],
-                    userAgent: navigator.userAgent || navigator.vendor || window.opera,
-                    isIOS: /iPad|iPhone|iPod/.test(dataDict.userAgent) && !window.MSStream,
-                    isAndroid: /android/i.test(this.userAgent)
-                };
-            function getExternalJS() {
-                dataDict.externalJS.forEach(item => {
-                    var js = document.createElement('script');
-                    document.body.appendChild(js);
-                    js.src='item';
-                });
-            }
-            function hideAll() { // to show that the loading of page is not finished
-                document.getElementById('display').style.display = 'none';
-                document.getElementById('homePage').style.display = 'none';
-            }
-            initPage(); // be aware that the async function may not be EXECUTED BEFORE the following lines
-        </script>
+        <script type='module' src='main.js'></script>
     </body>
 </html>
