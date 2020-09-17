@@ -3,7 +3,7 @@ var externalJS: ['initDataDict.js', 'dateTimeDisplay.js', 'dayNightMode.js', 'ch
 externalJS.forEach(item => {
     var js = document.createElement('script');
     document.body.appendChild(js);
-    js.src='item';
+    js.src = item;
 });
 function hideAll() { // to show that the loading of page is not finished
     document.getElementById('display').style.display = 'none';
