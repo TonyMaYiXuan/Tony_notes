@@ -4,11 +4,11 @@ body {
     text-align: center;
 }
 #dogBoneShapeMenu {
-    width: 16%;
+    width: 13%;
     float: left;
 }
 #dogBoneShapeMain_ {
-    width: 83%;
+    width: 87%;
     float: right;
 }
 #dogBoneShapeMain {

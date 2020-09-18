@@ -1,5 +1,6 @@
-var padding = 20; // I did not manage to access padding if only assigned by style.css
+var padding = 20; // better put not in CSS
 document.body.style.padding = padding.toString() + 'px';
+window.top.dataDict.mainDisplayWidth = document.getElementById('dogBoneShapeMain_').style.width = window.top.dataDict.mainDisplayWidth = document.getElementById('dogBoneShapeMain_').offsetWidth - padding * 2;
 window.top.dataDict.mainDisplayWidth = document.getElementById('dogBoneShapeMain_').offsetWidth;
 window.top.dataDict.mainDisplayHeight = window.top.dataDict.mainDisplayWidth;
 if (window.innerHeight - padding * 2 < window.top.dataDict.mainDisplayHeight) {
