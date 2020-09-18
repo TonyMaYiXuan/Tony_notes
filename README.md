@@ -20,6 +20,8 @@ Tony's notes, such as _Introducing Rigorous Mathematics_, _On behavior of Cauchy
 > May refer to https://github.com/TonyMaYiXuan/Tony_notes/commit/93777dde85f32bb4a50ac614e7512ee595563a7b#commitcomment-42418912, it is particularly complicated to set sizes across different devices systematically and thoroughly, and **it requires a lot of testing and careful planning**, included but not limited to defining a file _style.css_ for every _HTML_ file to use.
 ### Comment [2020-09-18 12:29]
 > Discovered a few days ago, you may use something like https://raw.githubusercontent.com/TonyMaYiXuan/-x-x-y-y/master/HTML_HW_2/index.html to access raw file code, but I guess, a file being updated here does not imply it has already been updated on the real website.
+### Comment [2020-09-18 14:04]
+> Refer to comment [2020-09-18 11:56], I may create a project to plan my work well. Refer to the directory _dogBoneShape_, some files like _style.css_ and _setDimensions.js_ (better rename to _setStyles.js_ may be compulsory).
 
 # TODOs
 ### TODO [2020-09-18 12:19]
