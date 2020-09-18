@@ -18,6 +18,8 @@ Tony's notes, such as _Introducing Rigorous Mathematics_, _On behavior of Cauchy
 > You may learn / recall something from comment**s** in **commit 362a9a6** and /or **https://github.com/TonyMaYiXuan/Tony_notes/commit/f5a3e33d3cc6da8df18d69cfd85b2aae1cde87f5** (necessary _TODOs_ there are replaced by this file).
 ### Comment [2020-09-18 11:56]
 > May refer to https://github.com/TonyMaYiXuan/Tony_notes/commit/93777dde85f32bb4a50ac614e7512ee595563a7b#commitcomment-42418912, it is particularly complicated to set sizes across different devices systematically and thoroughly, and **it requires a lot of testing and careful planning**, included but not limited to defining a file _style.css_ for every _HTML_ file to use.
+### Comment [2020-09-18 12:29]
+> Discovered a few days ago, you may use something like https://raw.githubusercontent.com/TonyMaYiXuan/-x-x-y-y/master/HTML_HW_2/index.html to access raw file code, but I guess, a file being updated here does not imply it has already been updated on the real website.
 
 # TODOs
 ### TODO [2020-09-18 12:19]
