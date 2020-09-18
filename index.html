@@ -93,13 +93,12 @@
             hideShow(0);
             dayNightMode(1);
             if (window.top.dataDict.isIOS) {
-                document.getElementById('mainDisplay').height = '300px';
+                document.getElementById('mainDisplay').height = '280px';
                 document.getElementById('mainDisplay').src = 'mainDisplayIOS.html';
                 hideShow(1);
             } else {
                 document.body.style.width = '98%'; // avoid '100%' here
-                alert(document.body.style.padding);
-                //document.body.style.height = String(window.innerHeight - padding * 2);
+                document.body.style.height = String(window.innerHeight - window.top.dataDict.bodyPadding * 2);
                 document.getElementById('menu').style.cssFloat = window.top.dataDict.isAndroid? 'inherit': 'left';
                 document.getElementById('menu').style.width = window.top.dataDict.isAndroid? '98%': '14%';
                 var tmpString = '<font size=+1><a href=\'tips.html\' target=\'mainDisplay\'><i>Tips</i></a></font>';
