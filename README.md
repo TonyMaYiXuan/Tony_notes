@@ -22,6 +22,8 @@ Tony's notes, such as _Introducing Rigorous Mathematics_, _On behavior of Cauchy
 > Discovered a few days ago, you may use something like https://raw.githubusercontent.com/TonyMaYiXuan/-x-x-y-y/master/HTML_HW_2/index.html to access raw file code, but I guess, a file being updated here does not imply it has already been updated on the real website.
 ### Comment [2020-09-18 14:04]
 > Refer to comment [2020-09-18 11:56], I may create a project to plan my work well. Refer to the directory _dogBoneShape_, some files like _style.css_ and _setDimensions.js_ (better rename to _setStyles.js_ may be compulsory).
+### Comment [2020-09-18 14:52]
+> Refer to _Issues_ of this repository, try to fix it later. But as _Kenny_ suggests, _js_ may probably be a langauge with bugs, the point is, I have to be familiar with it and learn to design web layout step by step / at least systematically, to **learn a stable way of development**.
 
 # TODOs
 ### TODO [2020-09-18 12:19]
@@ -30,3 +32,4 @@ Tony's notes, such as _Introducing Rigorous Mathematics_, _On behavior of Cauchy
 - [**Unnecessary**] Later may test whether some component is resizable --- write `noresize`, I suggest.
 - Add `type='application/pdf'` and something like `height=1280px` for `mainDisplay` by _javascript_.
 - May search for **`TODO`** in files by _GitHub_.
+- Fix problems in _Issues_ of this repository, refer to comment [2020-09-18 14:52] above.
