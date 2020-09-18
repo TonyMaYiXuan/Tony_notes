@@ -54,6 +54,7 @@
         <script type='text/javascript' src='changePaper.js'></script>
         <script type='text/javascript' src='goHomePage.js'></script>
         <script type='module'>
+            alert('alive in index.html');
             import { Octokit } from 'https://cdn.skypack.dev/pin/@octokit/rest@v18.0.6-HGqecU0WbbzwJY5lc7Ue/min/@octokit/rest.js'; // put in first line, at least not inside a function
             window.top.dataDict.readDataJSON = async function() {
                 const octokit = new Octokit(); // it must not be 'const' here if there are multiple 'response's below (or else it may not display successfully on phone Chrome browser) 
