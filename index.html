@@ -98,7 +98,8 @@
                 hideShow(1);
             } else {
                 document.body.style.width = '98%'; // avoid '100%' here
-                document.body.style.height = String(window.innerHeight - padding * 2);
+                alert(document.body.style.padding);
+                //document.body.style.height = String(window.innerHeight - padding * 2);
                 document.getElementById('menu').style.cssFloat = window.top.dataDict.isAndroid? 'inherit': 'left';
                 document.getElementById('menu').style.width = window.top.dataDict.isAndroid? '98%': '14%';
                 var tmpString = '<font size=+1><a href=\'tips.html\' target=\'mainDisplay\'><i>Tips</i></a></font>';
