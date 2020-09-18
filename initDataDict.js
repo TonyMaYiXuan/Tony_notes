@@ -1,4 +1,5 @@
-if (typeof window.top.dataDict == 'undefined') {
+//if (typeof window.top.dataDict == 'undefined') {
+//}
     window.top.dataDict = {
         bodyPadding: 20,
         dayNight: 1,
@@ -6,4 +7,3 @@ if (typeof window.top.dataDict == 'undefined') {
         isIOS: /iPad|iPhone|iPod/.test(this.userAgent) && !window.MSStream,
         isAndroid: /android/i.test(this.userAgent)
     };
-}
