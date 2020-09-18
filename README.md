@@ -18,3 +18,5 @@ Tony's notes, such as _Introducing Rigorous Mathematics_, _On behavior of Cauchy
 You may learn / recall something from comment**s** in **commit 362a9a6** and /or **https://github.com/TonyMaYiXuan/Tony_notes/commit/f5a3e33d3cc6da8df18d69cfd85b2aae1cde87f5** (for **TODOs** there!).
 ### Comment [2020-09-18 11:56]
 May refer to https://github.com/TonyMaYiXuan/Tony_notes/commit/93777dde85f32bb4a50ac614e7512ee595563a7b#commitcomment-42418912, it is particularly complicated to set sizes across different devices systematically and thoroughly, and **it requires a lot of testing and careful planning**, like defining a file _style.css_ for every _HTML_ file to use.
+### TODO [2020-09-18 12:19]
+- [**Unnecessary**] Some links like https://tonymayixuan.github.io/Tony_notes/DATA/, https://tonymayixuan.github.io/Tony_notes/dogBoneShape/, https://tonymayixuan.github.io/Tony_notes/homePage/ may be included to the page as a reference.
