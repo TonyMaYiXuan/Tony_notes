@@ -45,7 +45,7 @@
             <table id='menuTable' border=1 cellspacing=0 cellpadding=16 align=center valign=top width='90%'></table>
         </div>
         <div id='main'>
-            <iframe name='mainDisplay' id='mainDisplay' width='98%' frameborder=0 noresize=noresize allowfullscreen></iframe> <!-- Need 'px' --> <!-- I don't know if should add type='application/pdf'; name maybe required if use this as 'target' in href -->
+            <iframe name='mainDisplay' id='mainDisplay' width='100%' height='100%' frameborder=0 noresize=noresize allowfullscreen></iframe> <!-- Need 'px' --> <!-- I don't know if should add type='application/pdf'; name maybe required if use this as 'target' in href -->
         </div>
         <!-- The scripts must be put below the definition of the above <p> / <div> but I do not know if order of function declaration matters -->
         <script type='text/javascript' src='initDataDict.js'></script>
@@ -97,6 +97,7 @@
                 hideShow(1);
             } else {
                 document.body.style.width = '98%'; // avoid '100%' here
+                document.body.style.height = String(window.innerHeight - padding * 2);
                 document.getElementById('menu').style.cssFloat = window.top.dataDict.isAndroid? 'inherit': 'left';
                 document.getElementById('menu').style.width = window.top.dataDict.isAndroid? '98%': '14%';
                 var tmpString = '<font size=+1><a href=\'tips.html\' target=\'mainDisplay\'><i>Tips</i></a></font>';
