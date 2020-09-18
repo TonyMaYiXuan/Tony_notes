@@ -1,8 +1,8 @@
-var padding = window.top.dataDict.isAndroid? 6: 25;
-document.body.style.fontSize = String(window.top.dataDict.isAndroid? 8: 17) + 'px';
+var padding = window.top.dataDict.isAndroid? 3: 15;
+var fontSize = window.top.dataDict.isAndroid? 4: 20;  // if too small then cannot set
+document.body.style.fontSize = fontSize.toString() + 'px';
 document.body.style.padding = padding.toString() + 'px';
-document.body.style.padding = padding.toString() + 'px';
-window.top.dataDict.mainDisplayWidth = document.getElementById('dogBoneShapeMain_').style.width = window.top.dataDict.mainDisplayWidth = document.getElementById('dogBoneShapeMain_').offsetWidth - padding * 5 / 2;
+window.top.dataDict.mainDisplayWidth = document.getElementById('dogBoneShapeMain_').style.width = window.top.dataDict.mainDisplayWidth = document.getElementById('dogBoneShapeMain_').offsetWidth - padding * 2;
 window.top.dataDict.mainDisplayWidth = document.getElementById('dogBoneShapeMain_').offsetWidth;
 window.top.dataDict.mainDisplayHeight = window.top.dataDict.mainDisplayWidth;
 if (window.innerHeight - padding * 2 < window.top.dataDict.mainDisplayHeight) {
