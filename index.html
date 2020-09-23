@@ -54,9 +54,8 @@
         <script type='text/javascript' src='changePaper.js'></script>
         <script type='text/javascript' src='goHomePage.js'></script>
         <script type='module'>
-            alert('alive in index.html');
             import { Octokit } from 'https://cdn.skypack.dev/pin/@octokit/rest@v18.0.6-HGqecU0WbbzwJY5lc7Ue/min/@octokit/rest.js'; // put in first line, at least not inside a function
-            window.top.dataDict.readDataJSON = async function() {
+            readDataJSON = async function() {
                 const octokit = new Octokit(); // it must not be 'const' here if there are multiple 'response's below (or else it may not display successfully on phone Chrome browser) 
                 const responseDataJSON = await octokit.request('GET /repos/tonymayixuan/Tony_notes/contents/DATA/DATA_FOR_PAPERS.json', {
                     owner: 'tonymayixuan',
@@ -84,7 +83,7 @@
                 }
                 hideShow(1);
             }
-            window.top.dataDict.readDataJSON(); // execution not necessarily finish before the execution of below code begins; I give up trying to put this function call elsewhere
+            readDataJSON(); // execution not necessarily finish before the execution of below code begins
         </script>
         <script type='text/javascript'>
             function hideShow(par) { // hide before page is loaded
