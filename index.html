@@ -55,7 +55,7 @@
         <script type='text/javascript' src='goHomePage.js'></script>
         <script type='module'>
             import { Octokit } from 'https://cdn.skypack.dev/pin/@octokit/rest@v18.0.6-HGqecU0WbbzwJY5lc7Ue/min/@octokit/rest.js'; // put in first line, at least not inside a function
-            readDataJSON = async function() {
+            async function readDataJSON() {
                 const octokit = new Octokit(); // it must not be 'const' here if there are multiple 'response's below (or else it may not display successfully on phone Chrome browser) 
                 const responseDataJSON = await octokit.request('GET /repos/tonymayixuan/Tony_notes/contents/DATA/DATA_FOR_PAPERS.json', {
                     owner: 'tonymayixuan',
