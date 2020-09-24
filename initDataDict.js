@@ -2,9 +2,9 @@ if (typeof window.top.dataDict == 'undefined') {
     window.top.dataDict = {
         bodyPadding: 20,
         dayNight: 1,
-        userAgent: navigator.userAgent || navigator.vendor || window.opera,
-        isIOS: /iPad|iPhone|iPod/i.test(this.userAgent) && !window.MSStream,
-        isAndroid: /Android/i.test(this.userAgent)
+        userAgent: navigator.userAgent || navigator.vendor || window.opera
     };
-    alert('alive in initDataDict.js; userAgent: ' + window.top.dataDict.userAgent + '; /android/i.test(this.userAgent): ' + window.top.dataDict.isAndroid;
+    window.top.dataDict.isIOS = /iPad|iPhone|iPod/i.test(window.top.dataDict.userAgent) && !window.MSStream;
+    window.top.dataDict.isAndroid = /Android/.test(window.top.dataDict.userAgent);
+    alert('isAndroid? ' + window.top.dataDict.isAndroid);
 }
