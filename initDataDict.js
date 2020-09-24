@@ -6,5 +6,5 @@ if (typeof window.top.dataDict == 'undefined') {
         isIOS: /iPad|iPhone|iPod/i.test(this.userAgent) && !window.MSStream,
         isAndroid: /Android/i.test(this.userAgent)
     };
-    alert('alive in initDataDict.js; userAgent: ' + window.top.dataDict.userAgent + '; /android/i.test(this.userAgent): ' + window.top.dataDict.isAndroid);
+    alert('alive in initDataDict.js; userAgent: ' + window.top.dataDict.userAgent + '; /android/i.test(this.userAgent): ' + window.top.dataDict.isAndroid;
 }
