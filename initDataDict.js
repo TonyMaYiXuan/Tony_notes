@@ -1,4 +1,4 @@
-if (true /*typeof window.top.dataDict == 'undefined'*/) {
+if (typeof window.top.dataDict == 'undefined') {
     window.top.dataDict = {
         bodyPadding: 20,
         dayNight: 1,
