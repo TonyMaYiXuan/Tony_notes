@@ -18,7 +18,7 @@ function goHomePage(flag) { //1 for returning home and 0 for leaving home page
         document.getElementById('title').innerHTML = '<h1>Tony\'s note</h1>';
         document.getElementById('menuTable').innerHTML = '<tr><td align=\'center\'><div id=\'menuTableHome\' onclick=\'menuTableHomeClicked();\'>START</div></td></tr>';
         document.getElementById('menuTableHome').style.backgroundImage = window.top.dataDict.dayNight? 'linear-gradient(to bottom, #284838, #082230)': 'linear-gradient(to left, #F0BBFF, #FFAAD0)';
-        document.getElementById('mainDisplay').src = 'homePage/homePage.html';
+        document.getElementById('mainDisplay').src = 'homePage/index.html';
     } else {
         changePaper(window.top.dataDict.currentPaper.paperName);
     }
