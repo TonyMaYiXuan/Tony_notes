@@ -17,7 +17,7 @@ function dayNightMode(flag) {
     document.getElementsByTagName('h1')[0].style.fontFamily = dnModeAttr[flag].h1FontFace;
     document.getElementById('menuTable').style.backgroundColor = dnModeAttr[flag].menuBgColor;
     var menuTableStart = document.getElementById('menuTableStart');
-    alert(menuTableStart.innerHTML == '');
+    //alert(menuTableStart.innerHTML == '');
     alert(menuTableStart == null);
     alert(menuTableStart == 'null');
     if (menuTableStart != null) {
