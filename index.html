@@ -52,15 +52,11 @@
         </div>
         <!-- The scripts must be put below the definition of the above <p> / <div> but I do not know if order of function declaration matters -->
         <script type='text/javascript' src='initDataDict.js'></script>
-        <script type='text/javascript'>
-            alert('Testing point 3; isAndroid? ' + window.top.dataDict.isAndroid); // FOR TESTING
-        </script>
         <script type='text/javascript' src='dateTimeDisplay.js'></script>
         <script type='text/javascript' src='dayNightMode.js'></script>
         <script type='text/javascript' src='changePaper.js'></script>
         <script type='text/javascript' src='goHomePage.js'></script>
         <script type='module'>
-            alert('Testing point 4; isAndroid? ' + window.top.dataDict.isAndroid); // FOR TESTING
             import { Octokit } from 'https://cdn.skypack.dev/pin/@octokit/rest@v18.0.6-HGqecU0WbbzwJY5lc7Ue/min/@octokit/rest.js'; // put in first line, at least not inside a function
             async function readDataJSON() {
                 const octokit = new Octokit(); // it must not be 'const' here if there are multiple 'response's below (or else it may not display successfully on phone Chrome browser) 
@@ -71,8 +67,6 @@
                 });
                 window.top.dataDict.papers = JSON.parse(atob(responseDataJSON.data.content));
                 window.top.dataDict.currentPaper = {paperName: '', newest: '0000_00_00_00_00'}; // dictionary is better here, for function 'changePaper()'
-                alert('Testing point 1; isAndroid? ' + window.top.dataDict.isAndroid); // FOR TESTING
-                alert('window.top.dataDict' + typeof window.top.dataDict);
                 for (var i = 0; i != Object.keys(window.top.dataDict.papers).length; i++) {
                     var thisPaper = Object.keys(window.top.dataDict.papers)[i], cntVersion = window.top.dataDict.papers[thisPaper]['File name'].length;
                     window.top.dataDict.papers[thisPaper]['File link'] = [];
@@ -94,7 +88,6 @@
             readDataJSON(); // execution not necessarily finish before the execution of below code begins
         </script>
         <script type='text/javascript'>
-            alert('Testing point 2; isAndroid? ' + window.top.dataDict.isAndroid); // FOR TESTING
             function hideShow(par) { // hide before page is loaded
                 var divList = (par == 1 && window.top.dataDict.isIOS? ['dateTime', 'title', 'main']: ['dateTime', 'title', 'topRight', 'menu', 'main']), tmp = par? 'block': 'none';
                 divList.forEach((divItem) => {document.getElementById(divItem).style.display = tmp; })
@@ -108,6 +101,7 @@
             } else {
                 document.body.style.width = '98%'; // avoid '100%' here
                 document.body.style.height = String(window.innerHeight - window.top.dataDict.bodyPadding * 2);
+                document.getElementById('mainDisplay').height = window.top.dataDict.isAndroid? '600px': '900px';
                 document.getElementById('menu').style.cssFloat = window.top.dataDict.isAndroid? 'inherit': 'left';
                 document.getElementById('menu').style.width = window.top.dataDict.isAndroid? '98%': '14%';
                 var tmpString = '<font size=+1><a href=\'tips.html\' target=\'mainDisplay\'><i>Tips</i></a></font>';
