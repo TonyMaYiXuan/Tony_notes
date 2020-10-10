@@ -14,7 +14,7 @@
         <div id='dateTime' style='text-align: right; font-family: Calibri; color: red;'>
             <b>--- LOADING </b><sub>(it takes a while)</sub><b> ---</b>
         </div>
-        <div id='title' style='text-align: center; width: 98%; height: 100px; float: left;'>
+        <div id='title' style='text-align: center; width: 96%; height: 100px; float: left;'>
             <h1></h1>
         </div>
         <div id='topRight' style='width: 2%; height: 300px; float: right;'>
@@ -99,7 +99,7 @@
                 document.getElementById('mainDisplay').src = 'mainDisplayIOS.html';
                 hideShow(1);
             } else {
-                document.body.style.width = '98%'; // avoid '100%' here
+                document.body.style.width = '96%'; // avoid '100%' here
                 document.body.style.height = String(window.innerHeight - window.top.dataDict.bodyPadding * 2) + 'px';
                 document.getElementById('mainDisplay').height = window.top.dataDict.isAndroid? '600px': String(window.innerHeight - window.top.dataDict.bodyPadding * 5 - document.getElementById('title').offsetHeight) + 'px';
                 document.getElementById('menu').style.cssFloat = window.top.dataDict.isAndroid? 'inherit': 'left';
