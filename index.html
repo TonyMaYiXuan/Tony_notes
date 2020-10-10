@@ -99,9 +99,10 @@
                 document.getElementById('mainDisplay').src = 'mainDisplayIOS.html';
                 hideShow(1);
             } else {
-                document.body.style.width = window.top.dataDict.isAndroid? '92%': '99%'; // avoid '100%' here
+                document.body.style.width = window.top.dataDict.isAndroid? '90%': '99%'; // avoid '100%' here
                 document.body.style.height = String(window.innerHeight - window.top.dataDict.bodyPadding * 2) + 'px';
-                document.getElementById('mainDisplay').height = window.top.dataDict.isAndroid? '600px': String(window.innerHeight - window.top.dataDict.bodyPadding * 5 - document.getElementById('title').offsetHeight) + 'px';
+                document.getElementById('title').fontSize = window.top.dataDict.isAndroid? '8px': '17px';
+                document.getElementById('mainDisplay').height = window.top.dataDict.isAndroid? '560px': String(window.innerHeight - window.top.dataDict.bodyPadding * 5 - document.getElementById('title').offsetHeight) + 'px';
                 document.getElementById('menu').style.cssFloat = window.top.dataDict.isAndroid? 'inherit': 'left';
                 document.getElementById('menu').style.width = window.top.dataDict.isAndroid? '98%': '14%';
                 var tmpString = '<font size=+1><a href=\'tips.html\' target=\'mainDisplay\'><i>Tips</i></a></font>';
