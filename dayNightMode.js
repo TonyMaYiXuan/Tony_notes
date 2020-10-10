@@ -4,7 +4,7 @@ function dayNightMode(flag) {
                 bodyBgImage: 'linear-gradient(to right, #E8FFFF, #FFFFE8)', bodyColor: '#101010', bodyFontFace: 'Calibri', h1Color: '#E080B0', h1FontFace: 'Calibri Light', menuBgColor: '#00FFCC', topMargin: 5, leftRightMargin: 6
             },
             1: {
-                bodyBgImage: 'linear-gradient(to left, #080040, #200030)', bodyColor: '#A0B0C0', bodyFontFace: 'Calibri', h1Color: '#AAEEFF', h1FontFace: 'Calibri Light', menuBgColor: '#0060A0', topMargin: 4, leftRightMargin: 5
+                bodyBgImage: 'linear-gradient(to left, #080040, #200030)', bodyColor: '#A0B0C0', bodyFontFace: 'Calibri', h1Color: '#AAEEFF', h1FontFace: 'Calibri Light', menuBgColor: '#0080B0', topMargin: 4, leftRightMargin: 5
             }
         };
     document.body.style.backgroundImage = dnModeAttr[flag].bodyBgImage;
@@ -17,7 +17,7 @@ function dayNightMode(flag) {
     document.getElementsByTagName('h1')[0].style.fontFamily = dnModeAttr[flag].h1FontFace;
     document.getElementById('menuTable').style.backgroundColor = dnModeAttr[flag].menuBgColor;
     var menuTableStart = document.getElementById('menuTableStart');
-    if (typeof menuTableStart != 'undefined') {
-        document.getElementById('menuTable').style.backgroundImage = flag? 'linear-gradient(to bottom, #284838, #082230)': 'linear-gradient(to left, #F0BBFF, #FFAAD0)';
+    if (menuTableStart != 'null') {
+        document.getElementById('menuTable').style.backgroundImage = flag? 'linear-gradient(to bottom, #0080A0, #112233)': 'linear-gradient(to left, #BBFFCC, #0FEED0)';
     }
 }
