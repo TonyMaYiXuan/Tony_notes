@@ -1,13 +1,27 @@
-function goHomePage(flag) { //1 for return home and 0 for leaving home page
-    // TODO Hide something
+function menuTableHomeClicked() {
+    var menuTableInnerHTML = '';
+    for (var i = 0; i != Object.keys(window.top.dataDict.papers).length; i++) {
+        var paper = window.top.dataDict.papers[Object.keys(window.top.dataDict.papers)[i]];
+        var tmp = '<td align=\'center\' onclick=\'window.top.dataDict.currentPaper = {paperName: \'' + paper['Name'] + '\', newest: \'' + paper['File name'][0] + '\'};goHomePage(0);\'>' + paper['File name'][0] + '</td>';
+        if (!window.top.dataDict.isAndroid) {
+            tmp = '<tr>' + tmp + '</tr>';
+        }
+        menuTableInnerHTML += tmp;
+    }
+    if (window.top.dataDict.isAndroid) {
+        menuTableInnerHTML = '<tr>' + menuTableInnerHTML + '</tr>';
+    }
+}
+function goHomePage(flag) { //1 for returning home and 0 for leaving home page
+    ['buttonReturnHome', 'main'].forEach((item) => {document.getElementById(item).style.display = 'none'; });  // TODO Maybe hide more things
     if (flag) {
         document.getElementById('title').innerHTML = '<h1>Tony\'s note</h1>';
-        document.getElementById('menuTable').innerHTML = '<tr><td align=\'center\'><div id=\'menuTableHome\'>START</div></td></tr>';
-        document.getElementById('menuTableHome').style.backgroundImage = 1? 'linear-gradient(to top, #284838, #082230)': 'linear-gradient(to left, #F0BBFF, #FFAAD0)';
-        document.getElementById('homePage').src = 'homePage/homePage.html';
+        document.getElementById('menuTable').innerHTML = '<tr><td align=\'center\'><div id=\'menuTableHome\' onclick=\'menuTableHomeClicked();\'>START</div></td></tr>';
+        document.getElementById('menuTableHome').style.backgroundImage = window.top.dataDict.dayNight? 'linear-gradient(to bottom, #284838, #082230)': 'linear-gradient(to left, #F0BBFF, #FFAAD0)';
+        document.getElementById('mainDisplay').src = 'homePage/homePage.html';
     } else {
         changePaper(window.top.dataDict.currentPaper.paperName);
     }
-    document.getElementById('buttonReturnHome').display.style = flag? 'none': 'block';
-    document.getElementById('main').display.style = 'block';
+    document.getElementById('buttonReturnHome').style.display = flag? 'none': 'block';
+    document.getElementById('main').style.display = 'block';
 }
