@@ -99,7 +99,7 @@
                 document.getElementById('mainDisplay').src = 'mainDisplayIOS.html';
                 hideShow(1);
             } else {
-                document.body.style.width = window.top.dataDict.isAndroid?: '92%': '99%'; // avoid '100%' here
+                document.body.style.width = window.top.dataDict.isAndroid? '92%': '99%'; // avoid '100%' here
                 document.body.style.height = String(window.innerHeight - window.top.dataDict.bodyPadding * 2) + 'px';
                 document.getElementById('mainDisplay').height = window.top.dataDict.isAndroid? '600px': String(window.innerHeight - window.top.dataDict.bodyPadding * 5 - document.getElementById('title').offsetHeight) + 'px';
                 document.getElementById('menu').style.cssFloat = window.top.dataDict.isAndroid? 'inherit': 'left';
