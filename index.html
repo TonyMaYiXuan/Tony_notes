@@ -99,7 +99,6 @@
                 document.getElementById('mainDisplay').src = 'mainDisplayIOS.html';
                 hideShow(1);
             } else {
-                alert(window.top.dataDict.dayNight);
                 document.body.style.width = window.top.dataDict.isAndroid? '90%': '99%'; // avoid '100%' here
                 document.body.style.height = String(window.innerHeight - window.top.dataDict.bodyPadding * 2) + 'px';
                 document.getElementById('title').fontSize = window.top.dataDict.isAndroid? '8px': '17px';  // doesn't seem useful
