@@ -16,8 +16,8 @@ function dayNightMode(flag) {
     document.getElementsByTagName('h1')[0].style.color = dnModeAttr[flag].h1Color;
     document.getElementsByTagName('h1')[0].style.fontFamily = dnModeAttr[flag].h1FontFace;
     document.getElementById('menuTable').style.backgroundColor = dnModeAttr[flag].menuBgColor;
-    var menuTableHome = document.getElementById('menuTableHome');
-    if (typeof menuTableHome != 'undefined' && menuTableHome != null) {
-        menuTableHome.style.backgroundImage = flag? 'linear-gradient(to bottom, #284838, #082230)': 'linear-gradient(to left, #F0BBFF, #FFAAD0)';
+    var menuTableStart = document.getElementById('menuTableStart');
+    if (typeof menuTableStart != 'undefined' && menuTableStart != null) {
+        document.getElementById('menuTable').style.backgroundImage = flag? 'linear-gradient(to bottom, #284838, #082230)': 'linear-gradient(to left, #F0BBFF, #FFAAD0)';
     }
 }
