@@ -3,6 +3,8 @@ function menuTableStartClicked() /* simply change menuTable content */ {
     var menuTableInnerHTML = '';
     for (var i = 0; i != Object.keys(window.top.dataDict.papers).length; i++) {
         var paper = window.top.dataDict.papers[Object.keys(window.top.dataDict.papers)[i]];
+        alert(paper['Name']);
+        alert(paper);
         var tmp = 'align=\'center\'><a onclick=\'window.top.dataDict.currentPaper = {paperName: "' + paper['Name'] + '", newest: "' + paper['File name'][0] + '"};goHomePage(0);\'>' + paper['Name'] + '</a></td>';
         menuTableInnerHTML += window.top.dataDict.isAndroid? ('<td ' + tmp) /* same as width of menuTable */: ('<tr><td width=\'90%\' ' + tmp + '</tr>');
     }
