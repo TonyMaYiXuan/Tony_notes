@@ -7,5 +7,15 @@ function changePaper(paper) {
         tmpString = tmpString.substr(0, 41) + '...';
     }
     document.getElementById('title').innerHTML = '<h1>' + tmpString + ' <font color=' + comfortableColor + '><i><sub>(Tony\'s notes)</sub></i></font></h1>';
-    dayNightMode(window.top.dataDict.dayNight); // update font color of 'title'
+    var menuTableInnerHTML = 'align=\'center\'><font size=+1><a href=\'tips.html\' target=\'mainDisplay\'><i>TIPS</i></a></font></td>';
+    var menuTableInnerHTML = (window.top.dataDict.isAndroid? ('<td ' + menuTableInnerHTML): ('<tr><td height=\'30px\' ' + menuTableInnerHTML + '</tr>'));
+    for (var i = 0; i < window.top.dataDict.papers[paper]['File link'].length; i++) {
+        var tmp = 'align=\'center\'><font size=+1 face=\'Calibri\'><a herf=\'' + window.top.dataDict.papers[window.top.dataDict.currentPaper.paperName]['File link'][i] + '\' target=\'mainDisplay\'>' + window.top.dataDict.papers[paper]['File name'][i] + '</a></font></td>';
+        menuTableInnerHTML += (window.top.dataDict.isAndroid? ('<td ' + tmp): ('<tr><td height=\'35px\' width=\'90%\' ' + tmp + '</tr>'));
+    }
+    if (window.top.dataDict.isAndroid) {
+        menuTableInnerHTML = '<tr>' + menuTableInnerHTML + '</tr>';
+    }
+    document.getElementById('menuTable').innerHTML = menuTableInnerHTML;
+    dayNightMode(window.top.dataDict.dayNight); // update font color of 'title', and more
 }
