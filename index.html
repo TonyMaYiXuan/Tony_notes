@@ -80,9 +80,6 @@
                     }
                 }
                 changePaper(window.top.dataDict.currentPaper.paperName);
-                for (var i = 0; i < window.top.dataDict.papers[window.top.dataDict.currentPaper.paperName]['File link'].length; i++) {
-                    document.getElementById('menuTable').innerHTML += '<tr><td height=\'35px\' align=center><font size=+1 face=\'Calibri\'><a href=\'' + window.top.dataDict.papers[window.top.dataDict.currentPaper.paperName]['File link'][i] + '\' target=\'mainDisplay\'>' + window.top.dataDict.papers[window.top.dataDict.currentPaper.paperName]['File name'][i] + '</a></font></td></tr>';
-                }
                 hideShow(1);
             }
             readDataJSON(); // execution not necessarily finish before the execution of below code begins
@@ -105,8 +102,6 @@
                 document.getElementById('mainDisplay').height = window.top.dataDict.isAndroid? '560px': String(window.innerHeight - window.top.dataDict.bodyPadding * 5 - document.getElementById('title').offsetHeight) + 'px';
                 document.getElementById('menu').style.cssFloat = window.top.dataDict.isAndroid? 'inherit': 'left';
                 document.getElementById('menu').style.width = window.top.dataDict.isAndroid? '98%': '14%';
-                var tmpString = '<font size=+1><a href=\'tips.html\' target=\'mainDisplay\'><i>Tips</i></a></font>';
-                document.getElementById('menuTable').innerHTML += '<tr><td height=\'30px\' align=center>' + tmpString + '</td></tr>'; //TODO Finish coding here
                 document.getElementById('main').style.cssFloat = window.top.dataDict.isAndroid? 'inherit': 'right';
                 document.getElementById('main').style.width = window.top.dataDict.isAndroid? '98%': '84%';
                 dateTimeDisplay();
