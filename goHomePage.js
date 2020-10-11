@@ -17,12 +17,13 @@ function goHomePage(flag) { //1 for returning home and 0 for leaving home page
     if (flag) {
         document.getElementById('title').innerHTML = '<h1>Tony\'s note</h1>';
         document.getElementById('menuTable').innerHTML = '<tr><td align=\'center\'><div id=\'menuTableStart\'>START</div></td></tr>';  // menuTableStart used in dayNightMode.js
+        alert(menuTableStartClicked); // FOR TESTING
         document.getElementById('menuTableStart').onclick = menuTableStartClicked;
         document.getElementById('mainDisplay').src = 'homePage/index.html';
     } else {
         changePaper(window.top.dataDict.currentPaper.paperName);
     }
-    dayNightMode(1);
+    dayNightMode(window.top.dataDict.dayNight);
     document.getElementById('buttonReturnHome').style.display = flag? 'none': 'block';
     document.getElementById('main').style.display = 'block';
 }
