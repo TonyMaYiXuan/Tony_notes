@@ -1,4 +1,5 @@
 function menuTableStartClickedSub(i) {
+    i = parseInt(i);
     var paper = window.top.dataDict.papers[Object.keys(window.top.dataDict.papers)[i]];
     window.top.dataDict.currentPaper = {paperName: paper['Name'], newest: paper['File name'][0]};
 }
