@@ -3,7 +3,7 @@ function menuTableStartClicked() /* simply change menuTable content */ {
     var menuTableInnerHTML = '';
     for (var i = 0; i != Object.keys(window.top.dataDict.papers).length; i++) {
         var paper = window.top.dataDict.papers[Object.keys(window.top.dataDict.papers)[i]];
-        var tmp = '<td align=\'center\' onclick=\'window.top.dataDict.currentPaper = {paperName: \'' + paper['Name'] + '\', newest: \'' + paper['File name'][0] + '\'};goHomePage(0);\'>' + paper['File name'][0] + '</td>';
+        var tmp = '<td width=\'100%\' align=\'center\' onclick=\'window.top.dataDict.currentPaper = {paperName: \'' + paper['Name'] + '\', newest: \'' + paper['File name'][0] + '\'};goHomePage(0);\'>' + paper['File name'][0] + '</td>';
         if (!window.top.dataDict.isAndroid) {
             tmp = '<tr>' + tmp + '</tr>';
         }
