@@ -19,7 +19,7 @@ function dayNightMode(flag) {
         document.getElementById('menuTable').style.backgroundImage = dnModeAttr[flag].menuBgImage;
     }
     else {
-        document.getElementById('menuTable').style.backgroundImage = none;
+        document.getElementById('menuTable').style.backgroundImage = 'none';
         document.getElementById('menuTable').style.backgroundColor = dnModeAttr[flag].menuBgColor;
     }
 }
