@@ -15,11 +15,11 @@ function dayNightMode(flag) {
     document.body.style.marginRight = dnModeAttr[flag].leftRightMargin.toString() + 'px';
     document.getElementsByTagName('h1')[0].style.color = dnModeAttr[flag].h1Color;
     document.getElementsByTagName('h1')[0].style.fontFamily = dnModeAttr[flag].h1FontFace;
-    alert(window.top.dataDict.inHomePage);
     if (window.top.dataDict.inHomePage) {
         document.getElementById('menuTable').style.backgroundImage = dnModeAttr[flag].menuBgImage;
     }
     else {
+        document.getElementById('menuTable').style.backgroundImage = none;
         document.getElementById('menuTable').style.backgroundColor = dnModeAttr[flag].menuBgColor;
     }
 }
