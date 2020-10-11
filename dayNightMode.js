@@ -18,6 +18,6 @@ function dayNightMode(flag) {
     document.getElementById('menuTable').style.backgroundColor = dnModeAttr[flag].menuBgColor;
     var menuTableStart = document.getElementById('menuTableStart');
     if (menuTableStart != null) {
-        document.getElementById('menuTable').style.backgroundImage = flag? 'linear-gradient(to bottom, #0080A0, #112233)': 'linear-gradient(to left, #BBFFCC, #0FEED0)';
+        document.getElementById('menuTable').style.backgroundImage = flag? 'linear-gradient(to right, #0080A0, #112233)': 'linear-gradient(to left, #BBFFCC, #FFEED0)';
     }
 }
