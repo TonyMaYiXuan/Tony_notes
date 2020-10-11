@@ -22,7 +22,8 @@ function goHomePage(flag) { //1 for returning home and 0 for leaving home page
     elementsToHide.forEach((item) => {document.getElementById(item).style.display = 'none'; });
     if (flag) {
         document.getElementById('title').innerHTML = '<h1>Tony\'s note</h1>';
-        document.getElementById('menuTable').innerHTML = (window.top.dataDict.isAndroid? '<tr><td align=\'center\'><div id=\'menuTableStart\'>START</div></td></tr>': '<tr><td width=\'90%\' align=\'center\'>START</td></tr>');
+        var menuTableInnerHTML = ' align=\'center\'>START</td></tr>';
+        document.getElementById('menuTable').innerHTML = (window.top.dataDict.isAndroid? '<tr><td': '<tr><td width=\'90%\'') + menuTableInnerHTML;
         document.getElementById('menuTableStart').onclick = menuTableStartClicked;
         document.getElementById('mainDisplay').src = 'homePage/index.html';
     } else {
