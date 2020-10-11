@@ -1,7 +1,7 @@
 function menuTableStartClickedSub(i) {
     i = parseInt(i);
     var paper = window.top.dataDict.papers[Object.keys(window.top.dataDict.papers)[i]];
-    window.top.dataDict.currentPaper = {paperName: paper['Name'], newest: paper['File name'][0]};
+    window.top.dataDict.currentPaper = {paperName: Object.keys(window.top.dataDict.papers)[i], newest: paper['File name'][0]};
 }
 function menuTableStartClicked() /* simply change menuTable content */ {
     document.getElementById('menuTable').style.display = 'none';
