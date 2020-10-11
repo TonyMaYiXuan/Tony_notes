@@ -29,7 +29,7 @@ function goHomePage(flag) { //1 for returning home and 0 for leaving home page
     } else {
         changePaper(window.top.dataDict.currentPaper.paperName);
     }
-    window.top.dataDict.inHomePage = (typeof flag == 'number'? flag: parseInt(flag));
+    window.top.dataDict.inHomePage = (flag == 1);
     alert(window.top.dataDict.inHomePage);
     dayNightMode(window.top.dataDict.dayNight);
     document.getElementById('buttonReturnHome').style.display = flag? 'none': 'block';
