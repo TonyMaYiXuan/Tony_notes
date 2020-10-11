@@ -1,5 +1,4 @@
 function changePaper(paper) {
-    alert(paper);
     const comfortableColor = '#80E040'; // just a random color comfortable in both night and day mode
     window.top.dataDict.currentPaper = {paperName: paper, newest: window.top.dataDict.papers[paper]['File name'][0]};
     document.getElementById('mainDisplay').src = window.top.dataDict.papers[window.top.dataDict.currentPaper.paperName]['File link'][0];
