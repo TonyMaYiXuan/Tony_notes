@@ -11,7 +11,7 @@ function changePaper(paper) {
     var menuTableInnerHTML = (window.top.dataDict.isAndroid? ('<td ' + menuTableInnerHTML): ('<tr><td height=\'30px\' ' + menuTableInnerHTML + '</tr>'));
     for (var i = 0; i < window.top.dataDict.papers[paper]['File link'].length; i++) {
         var tmp = 'align=\'center\'><font size=+1 face=\'Calibri\'><a href=\'' + window.top.dataDict.papers[paper]['File link'][i] + '\' target=\'mainDisplay\'>' + window.top.dataDict.papers[paper]['File name'][i] + '</a></font></td>';
-        menuTableInnerHTML += (window.top.dataDict.isAndroid? ('<td ' + tmp): ('<tr><td height=\'35px\' width=\'250px\' ' + tmp + '</tr>'));
+        menuTableInnerHTML += (window.top.dataDict.isAndroid? ('<td ' + tmp): ('<tr><td height=\'35px\' width=\'' + window.top.dataDict.menuWidth + 'px\' ' + tmp + '</tr>'));
     }
     if (window.top.dataDict.isAndroid) {
         menuTableInnerHTML = '<tr>' + menuTableInnerHTML + '</tr>';
