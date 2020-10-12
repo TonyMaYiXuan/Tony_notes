@@ -22,4 +22,7 @@ function dayNightMode(flag) {
         document.getElementById('menuTable').style.backgroundImage = 'none';
         document.getElementById('menuTable').style.backgroundColor = dnModeAttr[flag].menuBgColor;
     }
+    if (document.getElementById('mainDisplay').src == 'dogBoneShape/index.html') {
+        setDogBoneShapeBackground();
+    }
 }
