@@ -31,7 +31,7 @@ function goHomePage(flag) { //1 for returning home and 0 for leaving home page
     }
     window.top.dataDict.inHomePage = (flag == 1);
     dayNightMode(window.top.dataDict.dayNight);
-    document.getElementById('title').style.display = 'none';
+    document.getElementById('title').style.display = 'block';
     document.getElementById('buttonReturnHome').style.display = flag? 'none': 'block';
     document.getElementById('main').style.display = 'block';
 }
