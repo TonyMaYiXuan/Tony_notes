@@ -22,9 +22,7 @@ function dayNightMode(flag) {
         document.getElementById('menuTable').style.backgroundImage = 'none';
         document.getElementById('menuTable').style.backgroundColor = dnModeAttr[flag].menuBgColor;
     }
-    alert(document.getElementById('mainDisplay').src);
-    alert(document.getElementById('dogBoneShapeMenu'));
-    //if (document.getElementById('mainDisplay').src == 'https://tonymayixuan.github.io/Tony_notes/homePage/index.html') {
-    //    setDogBoneShapeBackground();
-    //}
+    if (document.getElementById('mainDisplay').src == 'https://tonymayixuan.github.io/Tony_notes/homePage/index.html' && inDogBoneShape) {
+        setDogBoneShapeBackground();
+    }
 }
