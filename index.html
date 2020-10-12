@@ -100,7 +100,7 @@
                 document.body.style.width = window.top.dataDict.isAndroid? '90%': '99%'; // avoid '100%' here
                 document.body.style.height = String(window.innerHeight - window.top.dataDict.bodyPadding * 2) + 'px';
                 document.getElementById('title').fontSize = window.top.dataDict.isAndroid? '8px': '17px';  // doesn't seem useful
-                document.getElementById('mainDisplay').height = window.top.dataDict.isAndroid? '560px': String(window.innerHeight - window.top.dataDict.bodyPadding * 5 - document.getElementById('title').offsetHeight) + 'px';
+                document.getElementById('mainDisplay').height = window.top.dataDict.isAndroid? '560px': String(window.innerHeight - window.top.dataDict.bodyPadding * 2 - document.getElementById('title').offsetHeight) + 'px'; // better in full screen mode
                 document.getElementById('menu').style.cssFloat = window.top.dataDict.isAndroid? 'inherit': 'left';
                 document.getElementById('menu').style.width = window.top.dataDict.isAndroid? '98%': '14%';
                 document.getElementById('main').style.cssFloat = window.top.dataDict.isAndroid? 'inherit': 'right';
