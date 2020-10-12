@@ -22,7 +22,7 @@ function dayNightMode(flag) {
         document.getElementById('menuTable').style.backgroundImage = 'none';
         document.getElementById('menuTable').style.backgroundColor = dnModeAttr[flag].menuBgColor;
     }
-    if (document.getElementById('mainDisplay').src == 'https://tonymayixuan.github.io/Tony_notes/homePage/index.html' && inDogBoneShape) {
+    if ((document.getElementById('mainDisplay').src == 'https://tonymayixuan.github.io/Tony_notes/homePage/index.html') && window.top.dataDict.inDogBoneShape) {
         setDogBoneShapeBackground();
     }
 }
