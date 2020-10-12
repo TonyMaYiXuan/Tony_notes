@@ -27,6 +27,7 @@ function goHomePage(flag) { //1 for returning home and 0 for leaving home page
         document.getElementById('menuTableStart').onclick = menuTableStartClicked;
         document.getElementById('mainDisplay').src = 'homePage/index.html';
     } else {
+        window.top.dataDict.inDogBoneShape = false;
         changePaper(window.top.dataDict.currentPaper.paperName);
     }
     window.top.dataDict.inHomePage = (flag == 1);
