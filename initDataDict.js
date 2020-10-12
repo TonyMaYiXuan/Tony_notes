@@ -3,6 +3,7 @@ if (typeof window.top.dataDict == 'undefined') {
         bodyPadding: 20,
         dayNight: 1,
         inHomePage: false,
+        inDogBoneShape: false,
         menuWidth: 250, //maybe only for Windows
         userAgent: navigator.userAgent || navigator.vendor || window.opera
     };
