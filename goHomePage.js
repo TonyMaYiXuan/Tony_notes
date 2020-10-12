@@ -9,7 +9,7 @@ function menuTableStartClicked() /* simply change menuTable content */ {
     for (var i = 0; i != Object.keys(window.top.dataDict.papers).length; i++) {
         var paper = window.top.dataDict.papers[Object.keys(window.top.dataDict.papers)[i]];
         var tmp = 'align=\'center\'><a onclick=\'menuTableStartClickedSub(' + i.toString() + ');goHomePage(0);\'>' + paper['Name'] + '</a></td>';
-        menuTableInnerHTML += window.top.dataDict.isAndroid? ('<td ' + tmp): ('<tr><td width=\'90%\' ' + tmp + '</tr>') /* same as width of menuTable */;
+        menuTableInnerHTML += window.top.dataDict.isAndroid? ('<td ' + tmp): ('<tr><td width=\'250px\' ' + tmp + '</tr>') /* same as width of menuTable */;
     }
     if (window.top.dataDict.isAndroid) {
         menuTableInnerHTML = '<tr>' + menuTableInnerHTML + '</tr>';
@@ -18,12 +18,12 @@ function menuTableStartClicked() /* simply change menuTable content */ {
     document.getElementById('menuTable').style.display = 'block';
 }
 function goHomePage(flag) { //1 for returning home and 0 for leaving home page
-    var elementsToHide = ['buttonReturnHome', 'main']; // TODO Maybe hide more things here
+    var elementsToHide = ['buttonReturnHome', 'title', 'main']; // TODO Maybe hide more things here
     elementsToHide.forEach((item) => {document.getElementById(item).style.display = 'none'; });
     if (flag) {
         document.getElementById('title').innerHTML = '<h1>Tony\'s note</h1>';
         var menuTableInnerHTML = ' align=\'center\'><div id=\'menuTableStart\'>START</div></td></tr>';
-        document.getElementById('menuTable').innerHTML = (window.top.dataDict.isAndroid? '<tr><td': '<tr><td width=\'90%\'') + menuTableInnerHTML;
+        document.getElementById('menuTable').innerHTML = (window.top.dataDict.isAndroid? '<tr><td': '<tr><td width=\'250px\'') + menuTableInnerHTML;
         document.getElementById('menuTableStart').onclick = menuTableStartClicked;
         document.getElementById('mainDisplay').src = 'homePage/index.html';
     } else {
