@@ -8,7 +8,7 @@ function changePaper(paper) {
         tmpString = tmpString.substr(0, tmp - 3) + '...';
     }
     document.getElementById('title').innerHTML = '<h1>' + tmpString + ' <font color=' + comfortableColor + '><i><sub>(Tony\'s notes)</sub></i></font></h1>';
-    var menuTableInnerHTML = 'align=\'center\'><font size=+1><a href=\'description/index.html\' target=\'mainDisplay\'><i>T I P S</i></a></font></td>';
+    var menuTableInnerHTML = 'align=\'center\'><font size=+1><a href=\'description/index.html\' target=\'mainDisplay\'><i>DESCRIPTION</i></a></font></td>';
     var menuTableInnerHTML = (window.top.dataDict.isAndroid? ('<td ' + menuTableInnerHTML): ('<tr><td height=\'30px\' ' + menuTableInnerHTML + '</tr>'));
     for (var i = 0; i < window.top.dataDict.papers[paper]['File link'].length; i++) {
         var tmp = 'align=\'center\'><font size=+1 face=\'Calibri\'><a href=\'' + window.top.dataDict.papers[paper]['File link'][i] + '\' target=\'mainDisplay\'>' + window.top.dataDict.papers[paper]['File name'][i] + '</a></font></td>';
