@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <ul>
-            <font face="Calibri" size=+1>
+        <font face='Calibri' size=+1>
+            <h3 id='descriptionHeading'></h3>
+            <ul>
+                <p id='description'></p>
+            </ul>
+            <h3>
+                <b><i>Tips</b></i>
+            </h3>
+            <ul>
                 <li>
                     In computer browser, you may:
-                    <ol type="a">
+                    <ol type='a'>
                         <li>
                             Zoom in the pdf by '<b>+</b>' or '<i>fit-to-width</i>'.
                         </li>
@@ -15,9 +22,16 @@
                     </ol>
                 </li>
                 <li>
-                    You may reach all versions of PDF in <a href="https://drive.google.com/drive/folders/1mYRfW4-O1HD5igALGu9RYu9HUL_312is?usp=sharing" target="_new">this <i>Google Drive</i> folder</a>.
+                    You may reach all versions of PDF in <a id='driveFolderLink' target='_new'>this <i>Google Drive</i> folder</a>.
                 </li>
-            </font>
-        </ul>
+            </ul>
+        </font>
+        <script type='text/javascript'>
+            var paper = window.top.dataDict.currentPaper.paperName;
+            document.body.style.color = window.top.dataDict.dayNight? '#003399': '#9966CC';
+            document.getElementById('driveFolderLink').href = 'https://drive.google.com/drive/folders/' + window.top.dataDict.papers[paper]['Google Drive folder link'] + '?usp=sharing'
+            document.getElementById('descriptionHeading').innerHTML = '<b>Description of \'<i>' + window.top.dataDict.papers[paper]['Name'] + '\'</i></b>:';
+            document.getElementById('description').innerHTML = window.top.dataDict.papers[paper]['Description HTML'];
+        </script>
     </body>
 </html>
