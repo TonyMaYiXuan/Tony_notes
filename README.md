@@ -26,6 +26,8 @@ Tony's notes, such as _Introducing Rigorous Mathematics_, _On behavior of Cauchy
 > Refer to _Issues_ of this repository, try to fix it later. But as _Kenny_ suggests, _js_ may probably be a langauge with bugs, the point is, I have to be familiar with it and learn to design web layout step by step / at least systematically, to **learn a stable way of development**.
 ### Comment [2020-10-13 17:51]
 > Be careful with _javascript_ (or programming skill of yourself). First of all, it is not _c++_, so don't don things like `arr[a == b]` (change boolean to integer first). Also, refer to [this commit](https://github.com/TonyMaYiXuan/Tony_notes/commit/f23fe73b94fcaa2455effd8e18a75eca22d7e423), https://stackoverflow.com/a/2274327, notice that you should not use variable as key of dictionary unless it is put inside a `[]`.
+### Comment [2020-10-13 19:00]
+> To immitate the case on Phone, simply change _isAndroid_ to _true_ in _initDataDict.js_.
 
 # TODOs
 ### TODO [2020-09-18 12:19]
