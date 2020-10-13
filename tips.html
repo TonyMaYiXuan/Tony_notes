@@ -29,6 +29,7 @@
             function tipsChangeColor() {
                 document.body.style.color = window.top.dataDict.dayNight? '#AADDCC': '#003399';
             }
+            tipsChangeColor();
             var paper = window.top.dataDict.currentPaper.paperName;
             document.getElementById('driveFolderLink').href = 'https://drive.google.com/drive/folders/' + window.top.dataDict.papers[paper]['Google Drive folder link'] + '?usp=sharing'
             document.getElementById('descriptionHeading').innerHTML = '<b>Description of \'<i>' + window.top.dataDict.papers[paper]['Name'] + '\'</i></b>:';
