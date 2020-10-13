@@ -1,4 +1,5 @@
 if (typeof window.top.dataDict == 'undefined') {
+    alert('initDataDict.js called');
     window.top.dataDict = {
         bodyPadding: 20,
         dayNight: 1,
