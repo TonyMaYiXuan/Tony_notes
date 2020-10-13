@@ -72,7 +72,7 @@
                     var favourite = (window.top.dataDict.originalPapers[paper]['Favourite'] == 'Yes'? 1: 0);
                     window.top.dataDict.favouritePapers[favourite] = Object.assign({}, window.top.dataDict.favouritePapers[favourite], {[paper]: window.top.dataDict.originalPapers[paper]});
                 }
-                window.top.dataDict.papers = Object.assign({}, window.top.dataDict.favouritePapers[0], window.top.dataDict.favouritePapers[1]);
+                window.top.dataDict.papers = Object.assign({}, window.top.dataDict.favouritePapers[1], window.top.dataDict.favouritePapers[0]);
                 window.top.dataDict.currentPaper = {paperName: '', newest: '0000_00_00_00_00'}; // dictionary is better here, for function 'changePaper()'
                 for (var i = 0; i != Object.keys(window.top.dataDict.papers).length; i++) {
                     var thisPaper = Object.keys(window.top.dataDict.papers)[i], cntVersion = window.top.dataDict.papers[thisPaper]['File name'].length;
