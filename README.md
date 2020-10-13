@@ -15,7 +15,7 @@ Tony's notes, such as _Introducing Rigorous Mathematics_, _On behavior of Cauchy
 
 > To give more guiding, first open the local HTML file by clicking it, and then in the default _Chrome_ browser you can copy the file link in it to paste on the insecure _Chrome_. 
 ### Comment [2020-09-17 22:00]
-> You may learn / recall something from comment**s** in **commit 362a9a6** and /or **https://github.com/TonyMaYiXuan/Tony_notes/commit/f5a3e33d3cc6da8df18d69cfd85b2aae1cde87f5** (necessary _TODOs_ there are replaced by this file).
+> You may learn / recall something from comment**s** in **commit 362a9a6** and /or **[commit f5a3e33](https://github.com/TonyMaYiXuan/Tony_notes/commit/f5a3e33d3cc6da8df18d69cfd85b2aae1cde87f5)** (necessary _TODOs_ there are replaced by this file).
 ### Comment [2020-09-18 11:56]
 > May refer to https://github.com/TonyMaYiXuan/Tony_notes/commit/93777dde85f32bb4a50ac614e7512ee595563a7b#commitcomment-42418912, it is particularly complicated to set sizes across different devices systematically and thoroughly, and **it requires a lot of testing and careful planning**, included but not limited to defining a file _style.css_ for every _HTML_ file to use.
 ### Comment [2020-09-18 12:29]
@@ -24,6 +24,8 @@ Tony's notes, such as _Introducing Rigorous Mathematics_, _On behavior of Cauchy
 > Refer to comment [2020-09-18 11:56], I may create a project to plan my work well. Refer to the directory _dogBoneShape_, some files like _style.css_ and _setDimensions.js_ (better rename to _setStyles.js_ may be compulsory).
 ### Comment [2020-09-18 14:52]
 > Refer to _Issues_ of this repository, try to fix it later. But as _Kenny_ suggests, _js_ may probably be a langauge with bugs, the point is, I have to be familiar with it and learn to design web layout step by step / at least systematically, to **learn a stable way of development**.
+### Comment [2020-10-13 17:51]
+> Be careful with _javascript_ (or programming skill of yourself). First of all, it is not _c++_, so don't don things like `arr[a == b]` (change boolean to integer first). Also, refer to [this commit](https://github.com/TonyMaYiXuan/Tony_notes/commit/f23fe73b94fcaa2455effd8e18a75eca22d7e423), https://stackoverflow.com/a/2274327, notice that you should not use variable as key of dictionary unless it is put inside a `[]`.
 
 # TODOs
 ### TODO [2020-09-18 12:19]
