@@ -27,6 +27,7 @@ function dayNightMode(flag) {
         if ((document.getElementById('mainDisplay').src == 'https://tonymayixuan.github.io/Tony_notes/homePage/index.html') && window.top.dataDict.inDogBoneShape) {
             document.getElementById('mainDisplay').contentWindow.setDogBoneShapeBackground();  //notice that this function uses window.top.dataDict.dayNight, but not local variable 'flag'
         }
+        alert(document.getElementById('mainDisplay').src);
         else if ((typeof document.getElementById('mainDisplay').contentWindow.dataDict != 'undefined') && (document.getElementById('mainDisplay').contentWindow.dataDict.src == 'description/index.html')) {
             document.getElementById('mainDisplay').contentWindow.descriptionChangeColor();
         }
