@@ -1,4 +1,5 @@
 function dayNightMode(flag) {
+    window.top.dataDict.dayNight = flag;
     var dnModeAttr = { // day night mode attributes
             0: {
                 bodyBgImage: 'linear-gradient(to right, #E8FFFF, #FFFFE8)', bodyColor: '#101010', bodyFontFace: 'Calibri', h1Color: '#E080B0', h1FontFace: 'Calibri Light', menuBgColor: '#00FFCC', menuBgImage: 'linear-gradient(to left, #BBFFCC, #FFEED0)', topMargin: 5, leftRightMargin: 6
@@ -23,6 +24,6 @@ function dayNightMode(flag) {
         document.getElementById('menuTable').style.backgroundColor = dnModeAttr[flag].menuBgColor;
     }
     if ((document.getElementById('mainDisplay').src == 'https://tonymayixuan.github.io/Tony_notes/homePage/index.html') && window.top.dataDict.inDogBoneShape) {
-        document.getElementById('mainDisplay').contentWindow.setDogBoneShapeBackground();
+        document.getElementById('mainDisplay').contentWindow.setDogBoneShapeBackground();  //notice that this function uses window.top.dataDict.dayNight, but not local variable 'flag'
     }
 }
