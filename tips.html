@@ -4,7 +4,9 @@
         <font face='Calibri' size=+1>
             <h3 id='descriptionHeading'></h3>
             <ul>
-                <p id='description'></p>
+                <li>
+                    <p id='description'></p>
+                </li>
             </ul>
             <h3>
                 <b><i>Tips</b></i>
@@ -12,13 +14,9 @@
             <ul>
                 <li>
                     In computer browser, you may:
-                    <ol type='a'>
-                        <li>
+                    <ol type='a'> <!-- But if you don't include an <li>, it looks better -->
                             Zoom in the pdf by '<b>+</b>' or '<i>fit-to-width</i>'.
-                        </li>
-                        <li>
                             Use up/down arrow <font size=-1>(on your keyboard)</font> to scroll.
-                        </li>
                     </ol>
                 </li>
                 <li>
@@ -28,7 +26,7 @@
         </font>
         <script type='text/javascript'>
             var paper = window.top.dataDict.currentPaper.paperName;
-            document.body.style.color = window.top.dataDict.dayNight? '#003399': '#9966CC';
+            document.body.style.color = window.top.dataDict.dayNight? '#003399': '#AADDCC';
             document.getElementById('driveFolderLink').href = 'https://drive.google.com/drive/folders/' + window.top.dataDict.papers[paper]['Google Drive folder link'] + '?usp=sharing'
             document.getElementById('descriptionHeading').innerHTML = '<b>Description of \'<i>' + window.top.dataDict.papers[paper]['Name'] + '\'</i></b>:';
             document.getElementById('description').innerHTML = window.top.dataDict.papers[paper]['Description HTML'];
