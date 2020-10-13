@@ -69,8 +69,7 @@
                 window.top.dataDict.favouritePapers = [{} /* favourite */, {} /* not favourite */];
                 for (var i = 0; i != Object.keys(window.top.dataDict.originalPapers).length; i++) {
                     var paper = Object.keys(window.top.dataDict.originalPapers)[i];  /* its shortname */
-                    var favourite = (window.top.dataDict.originalPapers[paper]['Favourite'] == 'Yes');
-                    alert('I am alive here');
+                    var favourite = (window.top.dataDict.originalPapers[paper]['Favourite'] == 'Yes'? 1: 0);  // true / false is not 0 / 1
                     window.top.dataDict.favouritePapers[favourite] = Object.assign({}, window.top.dataDict.favouritePapers[favourite], {paper: window.top.dataDict.originalPapers[paper]});
                 }
                 window.top.dataDict.papers = Object.assign({}, window.top.dataDict.favouritePapers[0], window.top.dataDict.favouritePapers[1]);
