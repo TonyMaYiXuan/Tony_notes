@@ -3,8 +3,9 @@ function changePaper(paper) {
     window.top.dataDict.currentPaper = {paperName: paper, newest: window.top.dataDict.papers[paper]['File name'][0]};
     document.getElementById('mainDisplay').src = window.top.dataDict.papers[paper]['File link'][0];
     var tmpString = window.top.dataDict.papers[paper].Name;
-    if (tmpString.length > 71 - window.top.isAndroid * 30) {
-        tmpString = tmpString.substr(0, 41) + '...';
+    var tmp = 71 - window.top.isAndroid * 35;
+    if (tmpString.length > tmp) {
+        tmpString = tmpString.substr(0, tmp - 3) + '...';
     }
     document.getElementById('title').innerHTML = '<h1>' + tmpString + ' <font color=' + comfortableColor + '><i><sub>(Tony\'s notes)</sub></i></font></h1>';
     var menuTableInnerHTML = 'align=\'center\'><font size=+1><a href=\'tips.html\' target=\'mainDisplay\'><i>T I P S</i></a></font></td>';
