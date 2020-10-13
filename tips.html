@@ -25,8 +25,10 @@
             </ul>
         </font>
         <script type='text/javascript'>
+            function tipsChangeColor() {
+                document.body.style.color = window.top.dataDict.dayNight? '#AADDCC': '#003399';
+            }
             var paper = window.top.dataDict.currentPaper.paperName;
-            document.body.style.color = window.top.dataDict.dayNight? '#003399': '#AADDCC';
             document.getElementById('driveFolderLink').href = 'https://drive.google.com/drive/folders/' + window.top.dataDict.papers[paper]['Google Drive folder link'] + '?usp=sharing'
             document.getElementById('descriptionHeading').innerHTML = '<b>Description of \'<i>' + window.top.dataDict.papers[paper]['Name'] + '\'</i></b>:';
             document.getElementById('description').innerHTML = window.top.dataDict.papers[paper]['Description HTML'];
