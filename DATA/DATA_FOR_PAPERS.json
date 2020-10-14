@@ -58,5 +58,17 @@
             "1deDGLeMz7wDYmyre5iU0uA1pMfqZCz45"
         ],
         "Description HTML": "Solution of IMO HK Preliminary Selection Contest, by me and <i>Charles Fu</i>."
+    },
+    "polygon_area_formula": {
+        "Name": "Area formula for simple polygons",
+        "Favourite": "Yes",
+        "Google Drive folder link": "1mW2pOwXDzgKX06oUjBEehmfDfbP5MbqP",
+        "File name": [
+            "2020_10_14_19_39"
+        ],
+        "Google Drive file link": [
+            "1NYTjMRScy5JPBf2cXpe4zif4RP8ajQdN"
+        ],
+        "Description HTML": "About a formula giving the area of a general simple polygon, from the great book <i>Discrete and Computational Geometry</i>."
     }
 }
