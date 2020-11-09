@@ -31,9 +31,9 @@ Tony's notes, such as _Introducing Rigorous Mathematics_, _On behavior of Cauchy
 
 # TODOs
 ### TODO [2020-09-18 12:19]
-- [**Unnecessary**] Some links like https://tonymayixuan.github.io/Tony_notes/DATA/, https://tonymayixuan.github.io/Tony_notes/dogBoneShape/, https://tonymayixuan.github.io/Tony_notes/homePage/ may be included to the page as a reference, perhaps they are websites on their own.
-- Make use of `dataDict.papers['Google Drive folder link']` (which is easier for either Android or desktop to download pdf) and more in `DATA_FOR_PAPERS.json` and display _how many versions there are for a paper_ near it.
-- [**Unnecessary**] Later may test whether some component is resizable --- write `noresize`, I suggest.
-- Add `type='application/pdf'` and something like `height=1280px` for `mainDisplay` by _javascript_.
-- May search for **`TODO`** in files by _GitHub_.
-- Fix problems in _Issues_ of this repository, refer to comment [2020-09-18 14:52] above.
+- [ ] [**Unnecessary**] Some links like https://tonymayixuan.github.io/Tony_notes/DATA/, https://tonymayixuan.github.io/Tony_notes/dogBoneShape/, https://tonymayixuan.github.io/Tony_notes/homePage/ may be included to the page as a reference, perhaps they are websites on their own.
+- [ ] Make use of `dataDict.papers['Google Drive folder link']` (which is easier for either Android or desktop to download pdf) and more in `DATA_FOR_PAPERS.json` and display _how many versions there are for a paper_ near it.
+- [ ] [**Unnecessary**] Later may test whether some component is resizable --- write `noresize`, I suggest.
+- [ ] Add `type='application/pdf'` and something like `height=1280px` for `mainDisplay` by _javascript_.
+- [ ] May search for **`TODO`** in files by _GitHub_.
+- [ ] Fix problems in _Issues_ of this repository, refer to comment [2020-09-18 14:52] above.
