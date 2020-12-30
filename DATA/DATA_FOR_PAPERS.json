@@ -70,5 +70,17 @@
             "1NYTjMRScy5JPBf2cXpe4zif4RP8ajQdN"
         ],
         "Description HTML": "About a formula giving the area of a general simple polygon, from the great book <i>Discrete and Computational Geometry</i>."
-    }
+    },
+    "anti-derivative_polynomial_over_(1+x^4)": {
+        "Name": "Anti-derivative of any polynomial over (1+x^4)^?",
+        "Favourite": "Yes",
+        "Google Drive folder link": "1wtTrRJ1qZeu_1PYNaeNmjDqvdS-0519t",
+        "File name": [
+            "2020_12_30_21_31"
+        ],
+        "Google Drive file link": [
+            "1h8ZmO1Y6Eci23Dd10WtsrDyNRJOKYwie"
+        ],
+        "Description HTML": "Result of anti-derivative of any rational function in the form of a polynomial over (1+x^4)^n for some natural number n."
+    ]
 }
