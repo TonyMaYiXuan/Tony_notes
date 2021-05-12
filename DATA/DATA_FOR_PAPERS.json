@@ -82,5 +82,17 @@
             "1h8ZmO1Y6Eci23Dd10WtsrDyNRJOKYwie", "1tzgFxeaCc4cCEKiA5JTEIjOXLBL1V3kW", "1Cn8vIVmEumeI8Cv5CA7DAq9bYURbBxxA"
         ],
         "Description HTML": "Result of anti-derivative of any rational function in the form of a polynomial over (1+x^4)^n for some natural number n."
+    },
+    "maximize_standard_deviation_given_range": {
+        "Name": "Maximize the standard deviation given the range of data",
+        "Favourite": "Yes",
+        "Google Drive folder link": "11puSUs5Eyt8X88Dz-2nfSdevDyX6TwNx",
+        "File name": [
+            "2021_05_12_18_37"
+        ],
+        "Google Drive file link": [
+            "1UreLMreuo_hGgWn_dwS5c3R4wRe4gpHA"
+        ],
+        "Description HTML": "Rigorous proofs of the problem to maximize the standard deviation of a set of data given the range of them. The proofs used techniques that personally, I think is exceptionally inspiring. Special thanks to Mr. Fu Jia Cheng Charles and Mr. Cheng Tak Sum."
     }
 }
