@@ -1,109 +1,109 @@
 {
     "introducing_rigorous_mathematics": {
         "Name": "Introducing Rigorous Mathematics",
-        "Favourite": "Yes",
-        "Google Drive folder link": "1mYRfW4-O1HD5igALGu9RYu9HUL_312is",
+        "Favourite": "No",
+        "Google Drive folder link": "1RbhgucYPtCsklOL3hRhkgMJWIQFJI4jC",
         "File name": [
             "2020_08_27_22_01", "2020_09_10_23_25"
         ],
         "Google Drive file link": [
-            "1UMoc-KSDPXg4v8sF_hy4qzTBo_CHVwaa", "1XBfwAge0TQqvqhh2g90xd1IazKnI0GP8"
+            "1EZ05giiFf-kTLcGWuQxBw1McKxWQfeqb", "1FDJzk_v3KoNlESToKxsZ0Wc91YroS8ar"
         ],
         "Description HTML": "Writing some notes to introduce advanced Mathematics rigorously, including content in the great book <i>Principles in Mathematical Analysis</i> by <i>Walter Rudin</i>."
     },
     "on_behavior_of_cauchy_products": {
         "Name": "On behavior of Cauchy products",
         "Favourite": "Yes",
-        "Google Drive folder link": "1EkY4HRNVgZ9TyBuTi35bd86MI-IR_Olu",
+        "Google Drive folder link": "1reRUL67_aaw-XcQrHLTbJQS0FclK_U06",
         "File name": [
             "2018_08_22_14_58"
         ],
         "Google Drive file link": [
-            "1bQTF8Q0Kw7bp1Yj2jY-DBjYAx1tGsVZ4"
+            "1SfaRo6f6qwsueCFZzHQ9s_R-70a0hW9x"
         ],
         "Description HTML": "Study <i>Cauchy products</i> of summation, building knowledge from the theory of (discrete) (maybe infinite) summation."
     },
     "square_of_difference_of_roots_of_depressed_cubic": {
         "Name": "Roots being square of difference of roots of a depressed cubic",
         "Favourite": "Yes",
-        "Google Drive folder link": "1I6N9YQc7fU4f2x7mBkpzaOsGSE7Mzhm5",
+        "Google Drive folder link": "1PAnzBlQ_WlaortdA_Dng-X_-YwxRw9m1",
         "File name": [
             "2020_10_12_17_06", "2020_10_12_19_53"
         ],
         "Google Drive file link": [
-            "18YdcNUwNvWDClv2oyR8ycoFs8XK6tUjs", "1wWzc4J4DuOTrYnVisGh6vvMD_0h3DIub"
+            "1OpBtSYQdS5EpIVXmVpY1SCialy-EYYMx", "1f9dDHFZdxfIP3BvuG1Se14zImAhpaoJD"
         ],
         "Description HTML": "Forming an equation with roots being square of difference of roots of a depressed cubic equation, related to the <i>Cartan-Tartaglia formula</i>."
     },
     "uniform_charge_density_plane_forms_uniform_electric_field": {
         "Name": "Uniform charge density plane forms uniform electric field",
         "Favourite": "No",
-        "Google Drive folder link": "1zGuCE4-_h5F7kwzR-AmwNZ1bt7BOC8Vj",
+        "Google Drive folder link": "1lKKF7a0mfxrsDrR2lxl-hFnpD22L3W-C",
         "File name": [
             "2020_09_18_01_10"
         ],
         "Google Drive file link": [
-            "1XXU9gy51OZ5KYi6fX6FvJyHb404ts-Q0"
+            "1Uxb5m4Lb4ptEs_cyUZYJmOmIrS3c_S2e"
         ],
         "Description HTML": "An interesting <i>Physics</i> phenomenon with my little explanation. Idea by my teacher."
     },
     "imo_hk_with_sol": {
         "Name": "IMO HK with Solutions",
         "Favourite": "Yes",
-        "Google Drive folder link": "1z7zRssAaBD4sUPtqkPcUto_aOQgp_Qwb",
+        "Google Drive folder link": "19_6FnCuhTMtPVLfwm45EUOxqznmNIBa7",
         "File name": [
             "2020_10_13_16_34", "2020_10_19_18_02", "2020_11_02_20_02", "2021_04_24_09_47"
         ],
         "Google Drive file link": [
-            "1deDGLeMz7wDYmyre5iU0uA1pMfqZCz45", "1aXCFoNFe7cgA8ETe-tMG1xGd06mHKDxf", "1VeIsqp0XQTIzDbPOHpwxaYvDBSr22amc", "1pJatjbfD52uPRJ5Qiy21Q4_90rPiOCJ1"
+            "1Uyx_C-p3Ru5Kw-QBvucWZpKdSY3J2ob8", "1CA_TWOBSTx8s6-o6p0nAf0yj-bCflUo0", "13sh8oOxf2G_dnIpNYFvnrSPdIN4AzgRF", "1VLtjsyxmllrIQZYRgwDWybP-oO3LKn_t"
         ],
         "Description HTML": "Solution and more of IMO HK contests, by <i>Charles Fu</i> and I."
     },
     "polygon_area_formula": {
         "Name": "Area formula for simple polygons",
-        "Favourite": "Yes",
-        "Google Drive folder link": "1mW2pOwXDzgKX06oUjBEehmfDfbP5MbqP",
+        "Favourite": "No",
+        "Google Drive folder link": "1SYlch3DX7-xvqD8tJ_6Pr8vrRfPPsQfM",
         "File name": [
             "2020_10_14_19_39"
         ],
         "Google Drive file link": [
-            "1NYTjMRScy5JPBf2cXpe4zif4RP8ajQdN"
+            "1VHWByqMVFKUmIxMQ0_VmC4RQaW5qbLrO"
         ],
         "Description HTML": "About a formula giving the area of a general simple polygon, from the great book <i>Discrete and Computational Geometry</i>."
     },
     "anti-derivative_polynomial_over_(1+x^4)": {
         "Name": "Anti-derivative of any polynomial over (1+x^4)^?",
         "Favourite": "Yes",
-        "Google Drive folder link": "1wtTrRJ1qZeu_1PYNaeNmjDqvdS-0519t",
+        "Google Drive folder link": "1fckqYSGf3uER7R-kqIy1yGdV7FhG2TpE",
         "File name": [
             "2020_12_30_21_31", "2020_12_31_15_48", "2021_01_01_12_30"
         ],
         "Google Drive file link": [
-            "1h8ZmO1Y6Eci23Dd10WtsrDyNRJOKYwie", "1tzgFxeaCc4cCEKiA5JTEIjOXLBL1V3kW", "1Cn8vIVmEumeI8Cv5CA7DAq9bYURbBxxA"
+            "1TBSLVlvQ4veFpjG7TPRj2H4u9zITeqMx", "12FQoEkJkLVW9ktDc_Pn2J4cJ4AV_bVCI", "1P8s_gYj9cNJTUy-RsdQR6lbfpmkdZOjW"
         ],
         "Description HTML": "Result of anti-derivative of any rational function in the form of a polynomial over (1+x^4)^n for some natural number n."
     },
     "maximize_standard_deviation_given_range": {
         "Name": "Maximize the standard deviation given the range of data",
         "Favourite": "Yes",
-        "Google Drive folder link": "11puSUs5Eyt8X88Dz-2nfSdevDyX6TwNx",
+        "Google Drive folder link": "15CocFYWW0aukE7zcV2krk5AQ22XmzjpT",
         "File name": [
             "2021_05_12_18_37"
         ],
         "Google Drive file link": [
-            "1UreLMreuo_hGgWn_dwS5c3R4wRe4gpHA"
+            "1GilFjRa19TeWh28eUizVGo7mZ0tDUOx5"
         ],
         "Description HTML": "Rigorous proofs of the problem to maximize the standard deviation of a set of data given the range of them. The proofs used techniques that personally, I think is exceptionally inspiring. Special thanks to Mr. Fu Jia Cheng Charles and Mr. Cheng Tak Sum."
     },
     "2022_Physics_0_R2_Term_Paper": {
         "Name": "On 'Philosophy of mathematics and natural science'",
         "Favourite": "Yes",
-        "Google Drive folder link": "1_g7sVXEQe1S3_58JefqL7-Xx-afXt7bT",
+        "Google Drive folder link": "1wSBXRplFzzKA8cf0TwkiGEsdRUxkZF-V",
         "File name": [
             "2022_05_22_14_52", "2022_05_23_10_05"
         ],
         "Google Drive file link": [
-            "12ALI0PAr0DxNO2Tzhra560dMcyeFTRPx", "1db_dSJRts56KIcMn3pE8esjgMeshG7b2"
+            "159S-CkoIHWAzNK1eumSmQfbs5jF9bu2h", "1TY6epanQERx_WeWZm2nSW7O4O8e5iFPi"
         ],
         "Description HTML": "My understanding on some selected topics from ‘Philosophy of mathematics and natural science’, in a narrative style."
     }
